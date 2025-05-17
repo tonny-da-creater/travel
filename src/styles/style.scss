@@ -1,0 +1,54 @@
+@import "~modern-normalize/modern-normalize.css";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  outline-offset: -2px;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: green;
+}
+
+h2 {
+    color: red;
+}
+
+svg {
+    color: currentColor;
+    fill: aqua;
+}
