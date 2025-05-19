@@ -1,4 +1,7 @@
+@use "header";
 @import "~modern-normalize/modern-normalize.css";
+
+
 
 *,
 *::before,
@@ -23,7 +26,7 @@ button {
 }
 
 html {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 body {
@@ -36,19 +39,7 @@ img {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1120px;
     margin: 0 auto;
 }
 
-h1 {
-    color: green;
-}
-
-h2 {
-    color: red;
-}
-
-svg {
-    color: currentColor;
-    fill: aqua;
-}

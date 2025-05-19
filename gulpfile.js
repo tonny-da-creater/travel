@@ -34,10 +34,111 @@ const html = () => {
     .pipe(dest(paths.html.dest));
 };
 
+const processImages = (options = { isProduction: false }) => {
+  return through2.obj(function (file, enc, cb) {
+    if (file.isNull()) {
+      this.push(file);
+      return cb();
+    }
+
+    const extname = path.extname(file.path).toLowerCase();
+    const basename = path.basename(file.path, extname);
+    const outputDir = path.dirname(file.path).replace('src', 'build');
+
+    (async () => {
+      try {
+        const effort = options.isProduction ? 4 : 1;
+        const pngCompression = options.isProduction ? 9 : 6;
+
+        if (extname === '.jpg' || extname === '.jpeg') {
+          const buffer = await sharp(file.contents)
+            .jpeg({ quality: 80, progressive: true })
+            .toBuffer();
+          file.contents = buffer;
+          file.path = path.join(outputDir, `${basename}.jpg`);
+
+          const webpBuffer = await sharp(buffer)
+            .webp({ quality: 80, effort })
+            .toBuffer();
+          const webpFile = file.clone();
+          webpFile.contents = webpBuffer;
+          webpFile.path = path.join(outputDir, `${basename}.webp`);
+
+          const avifBuffer = await sharp(buffer)
+            .avif({ quality: 50, effort })
+            .toBuffer();
+          const avifFile = file.clone();
+          avifFile.contents = avifBuffer;
+          avifFile.path = path.join(outputDir, `${basename}.avif`);
+
+          this.push(file);
+          this.push(webpFile);
+          this.push(avifFile);
+          cb();
+        } else if (extname === '.png') {
+          const buffer = await sharp(file.contents)
+            .png({ compressionLevel: pngCompression, quality: 80 })
+            .toBuffer();
+          file.contents = buffer;
+          file.path = path.join(outputDir, `${basename}.png`);
+
+          const webpBuffer = await sharp(buffer)
+            .webp({ quality: 80, effort })
+            .toBuffer();
+          const webpFile = file.clone();
+          webpFile.contents = webpBuffer;
+          webpFile.path = path.join(outputDir, `${basename}.webp`);
+
+          const avifBuffer = await sharp(buffer)
+            .avif({ quality: 50, effort })
+            .toBuffer();
+          const avifFile = file.clone();
+          avifFile.contents = avifBuffer;
+          avifFile.path = path.join(outputDir, `${basename}.avif`);
+
+          this.push(file);
+          this.push(webpFile);
+          this.push(avifFile);
+          cb();
+        } else if (extname === '.webp') {
+          const buffer = await sharp(file.contents)
+            .webp({ quality: 80, effort })
+            .toBuffer();
+          file.contents = buffer;
+          file.path = path.join(outputDir, `${basename}.webp`);
+          this.push(file);
+          cb();
+        } else if (extname === '.avif') {
+          const buffer = await sharp(file.contents)
+            .avif({ quality: 50, effort })
+            .toBuffer();
+          file.contents = buffer;
+          file.path = path.join(outputDir, `${basename}.avif`);
+          this.push(file);
+          cb();
+        } else if (extname === '.gif') {
+          this.push(file);
+          cb();
+        } else if (extname === '.svg') {
+          file.path = path.join(outputDir, `${basename}.svg`);
+          this.push(file);
+          cb();
+        } else {
+          cb();
+        }
+      } catch (err) {
+        console.error(`Ошибка обработки ${file.path}: ${err.message}`);
+        cb(new Error(`Error processing ${file.path}: ${err.message}`));
+      }
+    })();
+  });
+};
+
 const imagesDev = () => {
-  return src([paths.images.src, '!src/images/sprites/**/*'], { since: lastRun(imagesDev) })
+  return src([paths.images.src, '!src/images/sprites/**/*'], { encoding: false })
     .pipe(plumber())
     .pipe(cached('images'))
+    .pipe(processImages({ isProduction: false }))
     .pipe(dest(paths.images.dest));
 };
 
@@ -45,99 +146,7 @@ const optimizeImages = () => {
   return src([paths.images.src, '!src/images/sprites/**/*'], { encoding: false })
     .pipe(plumber())
     .pipe(cached('images'))
-    .pipe(
-      through2.obj(function (file, enc, cb) {
-        if (file.isNull()) {
-          this.push(file);
-          return cb();
-        }
-
-        const extname = path.extname(file.path).toLowerCase();
-        const basename = path.basename(file.path, extname);
-        const outputDir = path.dirname(file.path);
-
-        (async () => {
-          try {
-            if (extname === '.jpg' || extname === '.jpeg') {
-              // Оптимизация JPEG
-              const buffer = await sharp(file.contents)
-                .jpeg({ quality: 80, progressive: true })
-                .toBuffer();
-              file.contents = buffer;
-
-              // Создание WebP-версии
-              const webpBuffer = await sharp(file.contents)
-                .webp({ quality: 80 })
-                .toBuffer();
-              const webpFile = file.clone();
-              webpFile.contents = webpBuffer;
-              webpFile.path = path.join(outputDir, `${basename}.webp`);
-
-              // Создание AVIF-версии
-              const avifBuffer = await sharp(file.contents)
-                .avif({ quality: 50, effort: 4 }) // effort: 0-9, меньшее = быстрее
-                .toBuffer();
-              const avifFile = file.clone();
-              avifFile.contents = avifBuffer;
-              avifFile.path = path.join(outputDir, `${basename}.avif`);
-
-              this.push(file);
-              this.push(webpFile);
-              this.push(avifFile);
-              cb();
-            } else if (extname === '.png') {
-              // Оптимизация PNG
-              const buffer = await sharp(file.contents)
-                .png({ compressionLevel: 9, quality: 80 })
-                .toBuffer();
-              file.contents = buffer;
-
-              // Создание WebP-версии
-              const webpBuffer = await sharp(file.contents)
-                .webp({ quality: 80 })
-                .toBuffer();
-              const webpFile = file.clone();
-              webpFile.contents = webpBuffer;
-              webpFile.path = path.join(outputDir, `${basename}.webp`);
-
-              // Создание AVIF-версии
-              const avifBuffer = await sharp(file.contents)
-                .avif({ quality: 50, effort: 4 })
-                .toBuffer();
-              const avifFile = file.clone();
-              avifFile.contents = avifBuffer;
-              avifFile.path = path.join(outputDir, `${basename}.avif`);
-
-              this.push(file);
-              this.push(webpFile);
-              this.push(avifFile);
-              cb();
-            } else if (extname === '.webp') {
-              // Оптимизация WebP
-              const buffer = await sharp(file.contents)
-                .webp({ quality: 80 })
-                .toBuffer();
-              file.contents = buffer;
-              this.push(file);
-              cb();
-            } else if (extname === '.avif') {
-              // Оптимизация AVIF
-              const buffer = await sharp(file.contents)
-                .avif({ quality: 50, effort: 4 })
-                .toBuffer();
-              file.contents = buffer;
-              this.push(file);
-              cb();
-            } else {
-              this.push(file);
-              cb();
-            }
-          } catch (err) {
-            cb(new Error(`Error processing ${file.path}: ${err.message}`));
-          }
-        })();
-      })
-    )
+    .pipe(processImages({ isProduction: true }))
     .pipe(dest(paths.images.dest));
 };
 
@@ -177,7 +186,7 @@ const svgSpriteTask = () => {
           }
         },
         { name: 'removeRasterImages', active: true },
-        { name: 'removeAttrs', params: { attrs: '(fill-rule|clip-rule|fill)' } } // Удаляем fill из <symbol>
+        { name: 'removeAttrs', params: { attrs: '(fill-rule|clip-rule|fill)' } }
       ]
     }))
     .pipe(svgSprite({
@@ -189,7 +198,7 @@ const svgSpriteTask = () => {
           inline: false,
           spriteAttrs: {
             fill: null,
-            style: null // Дополнительно убираем лишние стили
+            style: null
           }
         }
       },
@@ -228,6 +237,7 @@ const buildWebpack = (done) => {
 
 const watchFiles = () => {
   watch([paths.html.src, paths.partials.src], series(html));
+  watch(paths.images.src, series(imagesDev));
 };
 
 const dev = series(clean, parallel(html, imagesDev, fonts, svgSpriteTask), parallel(server, watchFiles));
@@ -236,4 +246,3 @@ const build = series(clean, parallel(html, series(svgSpriteTask, optimizeImages)
 exports.dev = dev;
 exports.build = build;
 exports.default = dev;
-
