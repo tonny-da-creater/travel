@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = (env = {}) => {
   const isProduction = env.mode === 'production';
@@ -81,6 +82,7 @@ module.exports = (env = {}) => {
       new MiniCssExtractPlugin({
         filename: '../styles/style.min.css',
       }),
+      ...(!isProduction ? [new webpack.HotModuleReplacementPlugin()] : []),
     ],
     optimization: {
       minimize: isProduction,
@@ -95,7 +97,7 @@ module.exports = (env = {}) => {
       },
       compress: true,
       port: 8080,
-      hot: false,
+      hot: true,
       watchFiles: ['src/**/*.html'],
       liveReload: true,
       open: true,

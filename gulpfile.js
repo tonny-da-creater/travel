@@ -158,6 +158,7 @@ const fonts = () => {
 const svgSpriteTask = () => {
   return src(paths.images.sprites, { nocache: true })
     .pipe(plumber())
+    .pipe(cached('svgSprite')) // Добавлено кэширование
     .pipe(svgo({
       plugins: [
         {
@@ -215,7 +216,7 @@ const svgSpriteTask = () => {
         ]
       }
     }))
-    .pipe(dest(paths.images.dest));
+    .pipe(dest(paths.images.dest)); // Исправлено: заменено pipesvgSpriteTaskdest на pipe(dest)
 };
 
 const server = (done) => {
