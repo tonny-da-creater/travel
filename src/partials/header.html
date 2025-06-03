@@ -1,12 +1,17 @@
 <header class="header">
-    <img src="../images/logo.svg" alt="">
+  <div class="container header__container">
+    <img src="../images/logo.svg" class="header__logo" alt="logo" width="40" height="58">
     <nav class="nav-menu">
-      <ul>
-        <li><a href="#home">Главная</a></li>
-        <li><a href="#about">О нас</a></li>
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#contact">Контакты</a></li>
+      <ul class="nav-menu__list">
+        <li class="nav-menu__list-item"><a href="#home" class="nav-menu__link">Главная</a></li>
+        <li class="nav-menu__list-item"><a href="#excursions" class="nav-menu__link">Экскурсии</a></li>
+        <li class="nav-menu__list-item"><a href="#account" class="nav-menu__link">Личный кабинет</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle">☰</button>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+      </button>
+   </div>
   </header>

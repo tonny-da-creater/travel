@@ -1,4 +1,8 @@
+@use 'variables' as v;
 @use "header";
+@use 'fonts';
+@use 'nav-toggle';
+@use 'hero';
 @import "~modern-normalize/modern-normalize.css";
 
 
@@ -26,11 +30,15 @@ button {
 }
 
 html {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 body {
     line-height: 1.5;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 img {
@@ -39,7 +47,17 @@ img {
 }
 
 .container {
-    max-width: 1120px;
-    margin: 0 auto;
+  max-width: v.$max-width-container;
+  margin: 0 auto;
+  padding: v.$padding-horizontal-mobile;
+
+  @media (min-width: v.$screen-tablet) {
+    padding: v.$padding-horizontal-tablet;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    padding: 0;
+  }
 }
+
 

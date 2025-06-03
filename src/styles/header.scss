@@ -1,46 +1,119 @@
+@use 'variables' as v;
+
 .header {
-      background-color: #333;
-      padding: 1rem;
-      color: white;
+  background-color: transparent;
+  padding: 27px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: v.$max-width-container;
+    margin: 0 auto;
+    padding: v.$padding-horizontal-mobile;
+  }
+
+  &__logo {
+    z-index: 15;
+  }
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: v.$primary-color;
+  padding: v.$padding-horizontal-mobile;
+  transform: translateY(-100%);
+  transition: transform 0.2s ease-in-out, height 0.2s ease-in-out;
+  z-index: 11;
+
+  &.active {
+    height: 100%;
+    min-height: 100vh;
+    padding: 60px 24px;
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out, height 0.2s ease-in-out;
+    z-index: 12;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    position: relative;
+    transform: none;
+    height: auto;
+    padding: 0;
+    background: transparent;
+    width: auto;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  &__list {
+    position: relative;
+    margin-top: 5rem;
+    padding-left: 0;
+
+    @media (min-width: v.$screen-desktop) {
       display: flex;
-      justify-content: space-between;
+      margin: 0;
+    }
+  }
+
+  &__list-item {
+    margin: 0.5rem 0;
+    list-style-type: none;
+    opacity: 0;
+
+    @media (min-width: v.$screen-desktop) {
+      margin: 0 20px 0 0;
+      opacity: 1;
+      transform: none;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    color: v.$secondary-text-color;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    position: relative;
+
+    &:hover {
+      color: v.$third-color;
     }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+    &:hover:after {
+      width: 100%;
     }
 
-    .nav-toggle {
-      display: block;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      padding: 0.5rem;
+    &.active {
+      color: v.$third-color;
     }
 
-    .nav-menu {
-      display: none;
-      list-style: none;
-      margin-top: 1rem;
+    @media (min-width: v.$screen-tablet) {
+      font-size: 3rem;
     }
 
-    .nav-menu.active {
-      display: block;
+    @media (min-width: v.$screen-desktop) {
+      font-size: 1.077rem;
     }
+  }
+}
 
-    .nav-menu li {
-      margin: 0.5rem 0;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    .nav-menu a:hover {
-      color: #ddd;
-    }
+.nav-menu.active .nav-menu__list-item {
+  opacity: 1;
+}
