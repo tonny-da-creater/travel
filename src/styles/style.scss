@@ -3,8 +3,11 @@
 @use 'fonts';
 @use 'nav-toggle';
 @use 'hero';
+@use 'btn';
+// @use 'video';
+// @use 'modal-video';
 @import "~modern-normalize/modern-normalize.css";
-
+// @import 'swiper/css'; // Импорт стилей Swiper
 
 
 *,
@@ -30,7 +33,7 @@ button {
 }
 
 html {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 body {
@@ -44,6 +47,7 @@ body.menu-open {
 img {
     max-width: 100%;
     display: block;
+    height: auto;
 }
 
 .container {
@@ -58,6 +62,12 @@ img {
   @media (min-width: v.$screen-desktop) {
     padding: 0;
   }
+}
+
+.main {
+  position: absolute;
+  width: 100%;
+  top: 0;
 }
 
 

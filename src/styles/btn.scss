@@ -1,0 +1,14 @@
+@use 'variables' as v;
+
+.btn {
+    border-radius: 60px;
+    background: v.$primary-color;
+    color: v.$secondary-text-color;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    text-decoration: none;
+
+    &__arrow {
+        fill: v.$secondary-text-color;
+    }
+}

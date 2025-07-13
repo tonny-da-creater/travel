@@ -1,0 +1,68 @@
+// @use 'variables' as v;
+// @use 'sass:color';
+
+
+
+// .video-wrapper {
+//   overflow: hidden; // Скрываем элементы за пределами
+//   position: relative;
+//   // display: flex;
+//   // justify-content: end;
+// }
+
+// .video-block {
+//   position: relative;
+//   width: 295px;
+//   height: 187px;
+//   outline: 1px solid red; // Визуализация границ
+// }
+
+
+// .video-poster {
+//   border-radius: 10px;
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .video-poster-item {
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+//   overflow: hidden;
+
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgba(0, 0, 0, 0.4);
+//     border-radius: 10px;
+//   }
+// }
+
+// .play {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 66px;
+//   height: 66px;
+//   cursor: pointer;
+// }
+
+// .video-swiper {
+//   width: 100%;
+//   height: 187px; // Высота слайдов
+// }
+
+// .swiper-slide {
+//   width: 295px;
+//   height: 187px;
+//   margin-right: 10px; // Отступ между слайдами
+// }
+
+

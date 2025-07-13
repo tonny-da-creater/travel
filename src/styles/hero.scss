@@ -1,13 +1,15 @@
 @use 'variables' as v;
 
 .hero {
-  height: 928px;
   background: url('/build/images/entry-section-mobile.jpg') no-repeat center/cover;
   background: image-set(
     url('/build/images/entry-section-mobile.avif') type('image/avif'),
     url('/build/images/entry-section-mobile.webp') type('image/webp'),
     url('/build/images/entry-section-mobile.jpg') type('image/jpg')
   ) no-repeat center/cover;
+  padding-top: 197px;
+  padding-bottom: 202px;
+  background-attachment: fixed;
 
   @media all and (min-resolution: 2dppx) {
     background: image-set(
@@ -18,13 +20,14 @@
   }
   
   @media (min-width: v.$screen-tablet) {
-    height: 500px;
     background: url('/build/images/entry-section-tablet.jpg') no-repeat center/cover;
     background: image-set(
       url('/build/images/entry-section-tablet.avif') type('image/avif'),
       url('/build/images/entry-section-tablet.webp') type('image/webp'),
       url('/build/images/entry-section-tablet.jpg') type('image/jpeg')
     ) no-repeat center/cover;
+    padding-top: 318px;
+    padding-bottom: 324px;
 
     @media all and (min-resolution: 2dppx) {
       background: url('/build/images/entry-section-tablet@2x.jpg') no-repeat center/cover;
@@ -36,13 +39,14 @@
     }
   }
   @media (min-width: v.$screen-desktop) {
-    height: 600px;
     background: url('/build/images/entry-section-desktop.jpg') no-repeat center/cover; /* Fallback */
     background: image-set(
       url('/build/images/entry-section-desktop.avif') type('image/avif'),
       url('/build/images/entry-section-desktop.webp') type('image/webp'),
       url('/build/images/entry-section-desktop.jpg') type('image/jpeg')
     ) no-repeat center/cover;
+    padding-top: 230px;
+    padding-bottom: 256px;
 
     @media all and (min-resolution: 2dppx) {
       background: url('/build/images/entry-section-desktop@2x.jpg') no-repeat center/cover; /* Fallback */
@@ -54,3 +58,124 @@
     }
   }
 }
+
+.hero__title {
+    margin: 0;
+    color: v.$secondary-text-color;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 3.00rem;
+    position: relative;
+    display: inline-block;
+
+    & small {
+        font-family: 'mr_kindlyjasmineg';
+        color: v.$third-color;
+        text-transform: none;
+        position: absolute;
+        top: 2rem;
+        right: -2.8rem;
+        
+        @media (min-width: v.$screen-tablet) {
+          top: 30px;
+          right: -5.67rem;
+          font-size: 100%;
+        }
+
+        @media (min-width: v.$screen-desktop) {
+          top: 45px;
+          right: -8.5rem;
+          font-size: 89%;
+        }
+    }
+
+    @media (min-width: v.$screen-tablet) {
+      font-size: 4.00rem;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+      font-size: 6.00rem;
+    }
+}
+
+.hero__btn {
+    padding: 1.1em 3.8em;
+    font-size: 1.1667rem;
+    margin-top: 93px;
+    display: inline-block;
+
+    @media (min-width: v.$screen-desktop) {
+      margin-top: 75px;
+    }
+}
+
+.logo-wrapper {
+  margin-top: 9px;
+
+  @media (min-width: v.$screen-desktop) {
+    display: flex;
+    margin-top: 0;
+  }
+}
+
+.first_logo-word {
+  width: 217px;
+  margin-bottom: 6px;
+
+  @media (min-width: v.$screen-tablet) {
+    width: 287px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.second_logo-word {
+  width: 306px;
+
+  @media (min-width: v.$screen-tablet) {
+    width: 408px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    margin-left: 30px;
+  }
+}
+
+.hero-social-block {
+  padding-top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  &__link {
+    align-items: center;
+    margin-bottom: 11px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    fill: v.$secondary-text-color;
+  }
+
+  @media (min-width: v.$screen-tablet) {
+    padding-top: 22px;
+  }
+}
+
+@media (min-width: v.$screen-tablet) {
+  .hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+
+

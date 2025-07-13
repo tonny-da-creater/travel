@@ -1,38 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pero Travel</title>
-    <link rel="preload" href="/fonts/Montserrat-Black.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/Montserrat-Black.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/Montserrat-Bold.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/Montserrat-Medium.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/mr_kindlyjasmineg.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/mr_kindlyjasmineg.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/build/images/entry-section-mobile.avif" as="image" type="image/avif" media="(max-width: 767px)">
-    <link rel="preload" href="/build/images/entry-section-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)" fetchpriority="low">
-    <link rel="preload" href="/build/images/entry-section-mobile.jpg" as="image" type="image/jpeg" media="(max-width: 767px)" fetchpriority="low">
-    <link rel="preload" href="/build/images/entry-section-tablet.avif" as="image" type="image/avif" media="(min-width: 768px) and (max-width: 1439px)">
-    <link rel="preload" href="/build/images/entry-section-tablet.webp" as="image" type="image/webp" media="(min-width: 768px) and (max-width: 1439px)" fetchpriority="low">
-    <link rel="preload" href="/build/images/entry-section-tablet.jpg" as="image" type="image/jpeg" media="(min-width: 768px) and (max-width: 1439px)" fetchpriority="low">
-    <link rel="preload" href="/build/images/entry-section-desktop.avif" as="image" type="image/avif" media="(min-width: 1440px)">
-    <link rel="preload" href="/build/images/entry-section-desktop.webp" as="image" type="image/webp" media="(min-width: 1440px)" fetchpriority="low">
-    <link rel="preload" href="/build/images/entry-section-desktop.jpg" as="image" type="image/jpeg" media="(min-width: 1440px)" fetchpriority="low">
     <link rel="stylesheet" href="styles/style.min.css">
 </head>
 <body>
     @@include('partials/header.html')
     <main class="main">
         <section class="hero">
-            <div class="container">
-
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero__title">ПУТЕШЕСТВУЙ <small>вместе с</small></h1>
+                    <div class="logo-wrapper">
+                        <img src="/images/pero.svg" class="first_logo-word" alt="pero">
+                        <img src="/images/travel.svg" class="second_logo-word" alt="travel">
+                    </div>
+                    <a href="#" class="hero__btn btn">К экскурсиям <svg width="15" height="8" class="btn__arrow">
+                            <use href="/images/sprites/sprites.svg#arrow"></use>
+                        </svg></a>
+                </div>
+                <div class="hero-social-block">
+                    <a href="#" class="hero-social-block__link"><svg width="28" height="17" class="hero-social-block__item">
+                            <use href="/images/sprites/sprites.svg#vk-icon"></use>
+                        </svg></a>
+                    <a href="#" class="hero-social-block__link"><svg width="28" height="28" class="hero-social-block__item">
+                            <use href="/images/sprites/sprites.svg#instagram-icon"></use>
+                        </svg></a>
+                    <a href="#" class="hero-social-block__link"><svg width="28" height="28" class="hero-social-block__item">
+                            <use href="/images/sprites/sprites.svg#facebook-icon"></use>
+                        </svg></a>
+                </div>
             </div>
+            <!-- <div class="video-wrapper">
+                <div class="swiper video-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" data-video-id="ytplayer1">
+                            <picture class="video-poster-item" id="poster1">
+                                <source srcset="/images/man-in-boat@2x.avif 2x, /images/man-in-boat.avif 1x" type="image/avif">
+                                <source srcset="/images/man-in-boat@2x.webp 2x, /images/man-in-boat.webp 1x" type="image/webp">
+                                <img src="/images/man-in-boat.jpg" alt="Man in boat video poster" class="video-poster" width="295" height="187">
+                            </picture>
+                            <img src="/images/play.svg" class="play" alt="Play video" data-player="ytplayer1">
+                        </div>
+                        <div class="swiper-slide" data-video-id="ytplayer2">
+                            <picture class="video-poster-item" id="poster2">
+                                <source srcset="/images/road-and-forest@2x.avif 2x, /images/road-and-forest.avif 1x" type="image/avif">
+                                <source srcset="/images/road-and-forest@2x.webp 2x, /images/road-and-forest.webp 1x" type="image/webp">
+                                <img src="/images/road-and-forest.jpg" alt="Road and forest video poster" class="video-poster" width="295" height="187">
+                            </picture>
+                            <img src="/images/play.svg" class="play" alt="Play video" data-player="ytplayer2">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </section>
     </main>
     @@include('partials/footer.html')
-<script src="scripts/main.min.js"></script>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="video-modal">
+        <div class="modal-content">
+            <button class="modal-close">Закрыть</button>
+            <div class="modal-video">
+                <iframe id="video-frame" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="scripts/main.min.js" defer></script>
 </body>
 </html>

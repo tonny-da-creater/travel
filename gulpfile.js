@@ -18,6 +18,7 @@ const paths = {
   partials: { src: 'src/partials/*.html' },
   images: { src: 'src/images/**/*.{jpg,jpeg,png,gif,svg}', sprites: 'src/images/sprites/*.svg', dest: 'build/images/' },
   fonts: { src: 'src/fonts/**/*.{ttf,woff,woff2}', dest: 'build/fonts/' },
+  scripts: { src: 'src/scripts/**/*.js', dest: 'build/scripts/' }, // Добавлено src для scripts
 };
 
 const clean = async () => {
@@ -65,7 +66,7 @@ const processImages = (options = { isProduction: false }) => {
           webpFile.path = path.join(outputDir, `${basename}.webp`);
 
           const avifBuffer = await sharp(buffer)
-            .avif({ quality: 50, effort })
+            .avif({ quality: 80, effort })
             .toBuffer();
           const avifFile = file.clone();
           avifFile.contents = avifBuffer;
@@ -90,7 +91,7 @@ const processImages = (options = { isProduction: false }) => {
           webpFile.path = path.join(outputDir, `${basename}.webp`);
 
           const avifBuffer = await sharp(buffer)
-            .avif({ quality: 50, effort })
+            .avif({ quality: 80, effort })
             .toBuffer();
           const avifFile = file.clone();
           avifFile.contents = avifBuffer;
@@ -110,7 +111,7 @@ const processImages = (options = { isProduction: false }) => {
           cb();
         } else if (extname === '.avif') {
           const buffer = await sharp(file.contents)
-            .avif({ quality: 50, effort })
+            .avif({ quality: 80, effort })
             .toBuffer();
           file.contents = buffer;
           file.path = path.join(outputDir, `${basename}.avif`);
@@ -158,7 +159,7 @@ const fonts = () => {
 const svgSpriteTask = () => {
   return src(paths.images.sprites, { nocache: true })
     .pipe(plumber())
-    .pipe(cached('svgSprite')) // Добавлено кэширование
+    .pipe(cached('svgSprite'))
     .pipe(svgo({
       plugins: [
         {
@@ -194,7 +195,7 @@ const svgSpriteTask = () => {
       mode: {
         symbol: {
           dest: 'sprites',
-          sprite: 'sprite.svg',
+          sprite: 'sprites.svg',
           id: '%f',
           inline: false,
           spriteAttrs: {
@@ -216,7 +217,7 @@ const svgSpriteTask = () => {
         ]
       }
     }))
-    .pipe(dest(paths.images.dest)); // Исправлено: заменено pipesvgSpriteTaskdest на pipe(dest)
+    .pipe(dest(paths.images.dest));
 };
 
 const server = (done) => {
@@ -239,6 +240,7 @@ const buildWebpack = (done) => {
 const watchFiles = () => {
   watch([paths.html.src, paths.partials.src], series(html));
   watch(paths.images.src, series(imagesDev));
+  watch(paths.scripts.src, series(buildWebpack)); // Исправлено: теперь использует paths.scripts.src
 };
 
 const dev = series(clean, parallel(html, imagesDev, fonts, svgSpriteTask), parallel(server, watchFiles));

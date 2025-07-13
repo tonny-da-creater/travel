@@ -106,5 +106,8 @@ module.exports = (env = {}) => {
       },
     },
     devtool: isProduction ? false : 'source-map',
+    resolve: {
+      modules: ['node_modules'],
+    },
   };
 };

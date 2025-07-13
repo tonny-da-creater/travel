@@ -3,8 +3,7 @@
 .header {
   background-color: transparent;
   padding: 27px 0;
-  position: fixed;
-  top: 0;
+  position: static;
   width: 100%;
   z-index: 10;
 
@@ -54,12 +53,12 @@
     background: transparent;
     width: auto;
     overflow: visible;
-    z-index: 0;
+    z-index: 1;
   }
 
   &__list {
     position: relative;
-    margin-top: 5rem;
+    margin-top: 5.42rem; /* Пересчитано */
     padding-left: 0;
 
     @media (min-width: v.$screen-desktop) {
@@ -69,7 +68,7 @@
   }
 
   &__list-item {
-    margin: 0.5rem 0;
+    margin: 0.54rem 0; /* Пересчитано */
     list-style-type: none;
     opacity: 0;
 
@@ -87,7 +86,7 @@
   &__link {
     color: v.$secondary-text-color;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 2.17rem; /* Пересчитано */
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     position: relative;
@@ -105,11 +104,11 @@
     }
 
     @media (min-width: v.$screen-tablet) {
-      font-size: 3rem;
+      font-size: 3.25rem; /* Пересчитано */
     }
 
     @media (min-width: v.$screen-desktop) {
-      font-size: 1.077rem;
+      font-size: 1.17rem; /* Пересчитано */
     }
   }
 }
