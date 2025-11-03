@@ -4,16 +4,29 @@
 @use 'nav-toggle';
 @use 'hero';
 @use 'btn';
-// @use 'video';
-// @use 'modal-video';
+@use 'video-poster';
+@use 'modal';
+@use 'modal-video';
+@use 'popular-excursions';
+@use 'about';
+@use 'services';
+@use 'gallery';
+@use 'reviews';
+@use 'swiper-slider';
+@use 'form-section';
+@use 'form-modal';
+@use 'footer';
 @import "~modern-normalize/modern-normalize.css";
-// @import 'swiper/css'; // Импорт стилей Swiper
-
 
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+// Дополнительный сброс отступов для параграфов
+p {
+    margin: 0;
 }
 
 [type="button"],
@@ -38,10 +51,18 @@ html {
 
 body {
     line-height: 1.5;
+
+    &.modal-open {
+      overflow: hidden;
+    }
 }
 
 body.menu-open {
   overflow: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
 }
 
 img {
@@ -65,9 +86,30 @@ img {
 }
 
 .main {
-  position: absolute;
+  position: static;
   width: 100%;
-  top: 0;
+  overflow-x: hidden;
 }
+
+.subtitle {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 2rem;
+  color: v.$secondary-color;
+}
+
+// Скрывает элемент визуально, но оставляет доступным для скринридеров и SEO
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 
 

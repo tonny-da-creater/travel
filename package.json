@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "gulp dev",
-    "build": "gulp build"
+    "build": "gulp build",
+    "screenshot:png": "node tools/screenshot.js --format=png",
+    "screenshot:pdf": "node tools/screenshot.js --format=pdf"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
@@ -21,6 +23,7 @@
     "gulp-svgo": "^2.2.1",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
+    "playwright": "^1.47.2",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.6.0",
     "sass": "^1.86.3",
@@ -34,6 +37,7 @@
     "webpack-dev-server": "^4.15.2"
   },
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "modern-normalize": "^3.0.1",
     "swiper": "^11.2.10"
   }

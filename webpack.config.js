@@ -24,7 +24,20 @@ module.exports = (env = {}) => {
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
-            { loader: 'css-loader', options: { sourceMap: !isProduction } },
+            { 
+              loader: 'css-loader', 
+              options: { 
+                sourceMap: !isProduction,
+                url: {
+                  filter: (url) => {
+                    // Не обрабатывать абсолютные пути (начинающиеся с /)
+                    // Они обрабатываются Gulp
+                    if (url.startsWith('/')) return false;
+                    return true;
+                  },
+                },
+              } 
+            },
             {
               loader: 'postcss-loader',
               options: {
@@ -46,6 +59,47 @@ module.exports = (env = {}) => {
               },
             },
             { loader: 'sass-loader', options: { sourceMap: !isProduction } },
+          ],
+        },
+        {
+          test: /\.css$/,
+          include: /node_modules/, // Обрабатываем CSS из node_modules (Swiper)
+          use: [
+            MiniCssExtractPlugin.loader,
+            { 
+              loader: 'css-loader', 
+              options: { 
+                sourceMap: !isProduction,
+                url: {
+                  filter: (url) => {
+                    // Не обрабатывать абсолютные пути (начинающиеся с /)
+                    // Они обрабатываются Gulp
+                    if (url.startsWith('/')) return false;
+                    return true;
+                  },
+                },
+              } 
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: [
+                    postcssPresetEnv({
+                      browsers: [
+                        'last 2 versions',
+                        '> 0.5%',
+                        'not dead',
+                        'ie 11',
+                        'Safari 9',
+                      ],
+                      autoprefixer: { grid: true },
+                    }),
+                  ],
+                },
+                sourceMap: !isProduction,
+              },
+            },
           ],
         },
         {
@@ -74,6 +128,13 @@ module.exports = (env = {}) => {
               ],
               sourceMaps: !isProduction,
             },
+          },
+        },
+        {
+          test: /\.(woff|woff2)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: '../fonts/[name][ext]',
           },
         },
       ],

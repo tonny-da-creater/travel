@@ -7,8 +7,13 @@
     font-family: 'Montserrat';
     font-weight: 700;
     text-decoration: none;
+    border: none;
+    outline: none;
+
 
     &__arrow {
         fill: v.$secondary-text-color;
+        width: 15px;
+        height: 8px;
     }
 }

@@ -8,6 +8,7 @@
   border: none;
   position: relative;
   z-index: 14;
+  margin-bottom: 7px;
 
   @media (min-width: v.$screen-desktop) {
     display: none;

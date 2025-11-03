@@ -1,0 +1,208 @@
+@use 'variables' as v;
+
+.reviews {
+  margin-bottom: 195px;
+
+  @media (min-width: v.$screen-tablet) {
+    margin-bottom: 207px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    margin-bottom: 149px;
+  }
+}
+
+.reviews .container {
+  // Мобильные устройства: отступ = padding обычного контейнера
+  margin-left: 24px; // = $padding-horizontal-mobile
+  margin-right: 0;
+  padding: 0;
+  max-width: 100%;
+  
+  @media (min-width: v.$screen-tablet) {
+    // Планшеты: отступ = padding обычного контейнера на планшетах
+    margin-left: 79px; // = $padding-horizontal-tablet
+  }
+  
+  @media (min-width: v.$screen-desktop) {
+    // Десктоп: отступ = как у центрированного контейнера
+    margin-left: calc((100vw - v.$max-width-container) / 2);
+    margin-right: 0;
+  }
+}
+
+.reviews .inner-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 86px;
+
+    @media (min-width: v.$screen-tablet) {
+        padding-left: 79px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+      padding: 0;
+    }
+}
+
+.reviews__view-all {
+    color: v.$primary-text-color;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: end;
+    display: block;
+    align-self: center;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 4px; // Позиция на уровне низа буквы "р"
+        left: 0;
+        width: 100%;
+        height: 0.5px;
+        background: v.$primary-text-color;
+    }
+
+    @media (min-width: v.$screen-tablet) {
+      display: none;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+      display: block;
+    }
+}
+
+.reviews__slider .reviews__slide {
+  background-color: #ededed;
+  min-height: 447px;
+  padding: 32px 24px 48px 28px;
+  border-radius: 10px;
+  display: flex; // !important для перебития inline-стилей Swiper
+  flex-direction: column;
+  height: auto; // !important для перебития inline-стилей Swiper
+
+  @media (min-width: v.$screen-tablet) {
+    flex-direction: row;
+    min-height: 246px;
+    padding: 25px 17px 31px 31px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    min-height: 322px;
+    padding: 37px 27px 31px 45px;
+  }
+}
+
+.reviews__slide-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; // Занимает всё доступное пространство
+}
+
+.reviews__slide picture {
+  flex-shrink: 0; // Не сжимается
+}
+
+.reviews__slide-photo {
+  border-radius: 10px;
+  filter: brightness(0.8);
+  margin-bottom: 18px;
+
+  @media (min-width: v.$screen-tablet) {
+    width: 168px;
+    height: 168px;
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    width: 245px;
+    height: 245px;
+    margin-right: 28px;
+  }
+}
+
+.reviews__slide-name {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 1.1667rem;
+  color: v.$primary-text-color;
+  margin-bottom: 9px;
+
+  @media (min-width: v.$screen-tablet) {
+    margin-bottom: 8px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    margin-bottom: 17px;
+  }
+}
+
+.reviews__slide-text {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 1.0833rem;
+  color: v.$primary-text-color;
+  line-height: 1.22;
+  z-index: 2;
+
+  @media (min-width: v.$screen-tablet) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    font-size: 1.1667rem;
+  }
+}
+
+.reviews__slide-quotes {
+  position: absolute;
+  bottom: 19px;
+  right: 19px;
+  fill: v.$third-color;
+  width: 143px;
+  height: 111px;
+
+  @media (min-width: v.$screen-tablet) {
+    bottom: 12px;
+    height: 109px;
+    right: 26px;
+    width: 141px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    bottom: 26px;
+    height: 137px;
+    right: 28px;
+    width: 177px;
+  }
+}
+
+
+// .reviews__slider {
+//   .swiper-wrapper {
+//     align-items: stretch !important; // Все слайды одинаковой высоты
+//   }
+// }
+
+.reviews__swiper-navigation {
+  margin-top: 48px;
+  margin-left: 6px;
+
+  @media (min-width: v.$screen-tablet) {
+    margin-top: 43px;
+    margin-left: 0px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    margin-top: 39px;
+  }
+}

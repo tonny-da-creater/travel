@@ -2,10 +2,8 @@
 
 .header {
   background-color: transparent;
-  padding: 27px 0;
-  position: static;
+  padding-top: 27px;
   width: 100%;
-  z-index: 10;
 
   &__container {
     display: flex;
@@ -16,9 +14,38 @@
     padding: v.$padding-horizontal-mobile;
   }
 
-  &__logo {
-    z-index: 15;
+  &__logo-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    z-index: 15; // Нужен только для мобильного меню
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
   }
+
+  &__logo {
+    display: block;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    padding-top: 20px;
+  }
+}
+
+// Header позиционируется поверх hero секции
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .nav-menu {
@@ -35,6 +62,7 @@
   transform: translateY(-100%);
   transition: transform 0.2s ease-in-out, height 0.2s ease-in-out;
   z-index: 11;
+  pointer-events: none; // ❗ Не реагирует на клики когда закрыто
 
   &.active {
     height: 100%;
@@ -43,17 +71,18 @@
     transform: translateY(0);
     transition: transform 0.2s ease-in-out, height 0.2s ease-in-out;
     z-index: 12;
+    pointer-events: auto; // ❗ Включаем клики когда открыто
   }
 
   @media (min-width: v.$screen-desktop) {
-    position: relative;
+    position: static;
     transform: none;
     height: auto;
     padding: 0;
     background: transparent;
     width: auto;
     overflow: visible;
-    z-index: 1;
+    pointer-events: auto; // ❗ Включаем клики на десктопе
   }
 
   &__list {
@@ -62,6 +91,7 @@
     padding-left: 0;
 
     @media (min-width: v.$screen-desktop) {
+      position: static; // Убираем stacking context
       display: flex;
       margin: 0;
     }

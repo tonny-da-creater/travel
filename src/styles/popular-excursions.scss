@@ -1,0 +1,482 @@
+@use 'variables' as v;
+
+.popular-excursions .container {
+  // Мобильные устройства: отступ = padding обычного контейнера
+  margin-left: 24px; // = $padding-horizontal-mobile
+  margin-right: 0;
+  padding: 0;
+  max-width: 100%;
+  
+  @media (min-width: v.$screen-tablet) {
+    // Планшеты: отступ = padding обычного контейнера на планшетах
+    margin-left: 79px; // = $padding-horizontal-tablet
+  }
+  
+  @media (min-width: v.$screen-desktop) {
+    // Десктоп: отступ = как у центрированного контейнера
+    margin-left: calc((100vw - v.$max-width-container) / 2);
+    margin-right: 0;
+  }
+}
+
+.inner-container {
+  max-width: v.$max-width-container;
+  margin: 0 auto;
+
+  @media (min-width: v.$screen-tablet) {
+    padding-right: 79px;
+    padding-left: 0;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-bottom: 87px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+.popular-excursions {
+  margin: 0 0 149px 0;
+  position: relative;
+
+  @media (min-width: v.$screen-desktop) {
+    margin-bottom: 148px;
+  }
+
+  .popular-excursions__subtitle {
+    margin-bottom: 68px;
+
+    @media (min-width: v.$screen-tablet) {
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+      margin-bottom: 0;
+    }
+  }
+
+  .popular-excursions__slide {
+    border-radius: 10px;
+    padding: 0 15px 30px 15px;
+    padding-top: clamp(181px, calc(60px + 28.02vw), 275px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    min-height: 540px;
+  
+    
+
+    @media (min-width: v.$screen-tablet) {
+      padding-top: clamp(173px, 20vw, 230px);
+      padding-bottom: 30px;
+      min-height: 491px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+      padding: 210px 15px 42px 15px;
+      min-height: 497px;
+    }
+  }
+
+  .popular-excursions__slide-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .popular-excursions__slide:first-child {
+    // Мобильные устройства (по умолчанию)
+    background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.2) 0%,
+                  rgba(0, 0, 0, 0.12) 12%,
+                  rgba(0, 0, 0, 0.7) 80%,
+                  rgba(0, 0, 0, 1) 100%
+                ),
+                image-set(
+                  url('/images/bridge-mobile.avif') type('image/avif'),
+                  url('/images/bridge-mobile.webp') type('image/webp'),
+                  url('/images/bridge-mobile.jpg') type('image/jpg')
+                ) no-repeat center/cover;
+
+    // Retina для мобильных
+    @media all and (min-resolution: 2dppx) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/bridge-mobile@2x.avif') type('image/avif'),
+                    url('/images/bridge-mobile@2x.webp') type('image/webp'),
+                    url('/images/bridge-mobile@2x.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+
+    // Планшеты
+    @media (min-width: v.$screen-tablet) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/bridge-tablet.avif') type('image/avif'),
+                    url('/images/bridge-tablet.webp') type('image/webp'),
+                    url('/images/bridge-tablet.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+
+    // Retina для планшетов
+    @media (min-width: v.$screen-tablet) and (min-resolution: 2dppx) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/bridge-tablet@2x.avif') type('image/avif'),
+                    url('/images/bridge-tablet@2x.webp') type('image/webp'),
+                    url('/images/bridge-tablet@2x.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+
+    // Десктопы
+    @media (min-width: v.$screen-desktop) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/bridge-desktop.avif') type('image/avif'),
+                    url('/images/bridge-desktop.webp') type('image/webp'),
+                    url('/images/bridge-desktop.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+
+    // Retina для десктопов
+    @media (min-width: v.$screen-desktop) and (min-resolution: 2dppx) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/bridge-desktop@2x.avif') type('image/avif'),
+                    url('/images/bridge-desktop@2x.webp') type('image/webp'),
+                    url('/images/bridge-desktop@2x.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+  }
+
+  .popular-excursions__slide:nth-child(2) {
+    background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.5) 0%,
+                  rgba(0, 0, 0, 0.12) 12%,
+                  rgba(0, 0, 0, 0.7) 80%,
+                  rgba(0, 0, 0, 1) 100%
+                ),
+                url('/images/woman-on-horse-mobile.jpg') no-repeat center/cover;
+    background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.2) 0%,
+                  rgba(0, 0, 0, 0.12) 12%,
+                  rgba(0, 0, 0, 0.7) 80%,
+                  rgba(0, 0, 0, 1) 100%
+                ),
+                image-set(
+                  url('/images/woman-on-horse-mobile.avif') type('image/avif'),
+                  url('/images/woman-on-horse-mobile.webp') type('image/webp'),
+                  url('/images/woman-on-horse-mobile.jpg') type('image/jpg')
+                ) no-repeat center/cover;
+
+    @media all and (min-resolution: 2dppx) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.5) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  url('/images/woman-on-horse-mobile@2x.jpg') no-repeat center/cover;
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/woman-on-horse-mobile@2x.avif') type('image/avif'),
+                    url('/images/woman-on-horse-mobile@2x.webp') type('image/webp'),
+                    url('/images/woman-on-horse-mobile@2x.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+  }
+
+  .popular-excursions__slide:nth-child(3) {
+    background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.5) 0%,
+                  rgba(0, 0, 0, 0.12) 12%,
+                  rgba(0, 0, 0, 0.7) 80%,
+                  rgba(0, 0, 0, 1) 100%
+                ),
+                url('/images/waterfall-mobile.jpg') no-repeat center/cover;
+    background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.2) 0%,
+                  rgba(0, 0, 0, 0.12) 12%,
+                  rgba(0, 0, 0, 0.7) 80%,
+                  rgba(0, 0, 0, 1) 100%
+                ),
+                image-set(
+                  url('/images/waterfall-mobile.avif') type('image/avif'),
+                  url('/images/waterfall-mobile.webp') type('image/webp'),
+                  url('/images/waterfall-mobile.jpg') type('image/jpg')
+                ) no-repeat center/cover;
+    // min-height: 400px;
+
+    @media all and (min-resolution: 2dppx) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.5) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  url('/images/waterfall-mobile@2x.jpg') no-repeat center/cover;
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/waterfall-mobile@2x.avif') type('image/avif'),
+                    url('/images/waterfall-mobile@2x.webp') type('image/webp'),
+                    url('/images/waterfall-mobile@2x.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+  }
+
+  .popular-excursions__slide:nth-child(4) {
+    background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.5) 0%,
+                  rgba(0, 0, 0, 0.12) 12%,
+                  rgba(0, 0, 0, 0.7) 80%,
+                  rgba(0, 0, 0, 1) 100%
+                ),
+                url('/images/charches-mobile.jpg') no-repeat center/cover;
+    background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.2) 0%,
+                  rgba(0, 0, 0, 0.12) 12%,
+                  rgba(0, 0, 0, 0.7) 80%,
+                  rgba(0, 0, 0, 1) 100%
+                ),
+                image-set(
+                  url('/images/charches-mobile.avif') type('image/avif'),
+                  url('/images/charches-mobile.webp') type('image/webp'),
+                  url('/images/charches-mobile.jpg') type('image/jpg')
+                ) no-repeat center/cover;
+    // min-height: 400px;
+
+    @media all and (min-resolution: 2dppx) {
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.5) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  url('/images/charches-mobile@2x.jpg') no-repeat center/cover;
+      background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.12) 12%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 1) 100%
+                  ),
+                  image-set(
+                    url('/images/charches-mobile@2x.avif') type('image/avif'),
+                    url('/images/charches-mobile@2x.webp') type('image/webp'),
+                    url('/images/charches-mobile@2x.jpg') type('image/jpg')
+                  ) no-repeat center/cover;
+    }
+  }
+
+  .popular-excursions__slide-title {
+    font-size: 1.0833rem;
+    color: v.$secondary-text-color;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: -1px;
+
+    @media (min-width: v.$screen-tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  .popular-excursions__slide-subtitle {
+    color: v.$third-color;
+    font-size: 1.17rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    margin-top: -2px;
+    margin-bottom: 7px;
+
+    @media (min-width: v.$screen-tablet) {
+      margin-top: 0;
+      margin-bottom: 7px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+      margin-top: 2px;
+    }
+  }
+
+  .popular-excursions__slide-details {
+    display: flex;
+  }
+
+  .popular-excursions__card-duration,
+  .popular-excursions__card-price {
+    display: inline-flex;
+    align-items: center;
+    color: v.$secondary-text-color;
+    fill: v.$secondary-text-color;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+    font-weight: 500;
+  }
+
+  .popular-excursions__card-price {
+    margin-left: 14px;
+  }
+
+  .popular-excursions__card-watch-svg,
+  .popular-excursions__card-coins-svg {
+    margin-right: 5px;
+  }
+
+  .popular-excursions__card-watch-svg {
+    width: 12px;
+    height: 12px;
+  }
+  .popular-excursions__card-coins-svg {
+    width: 15px;
+    height: 15px;
+    fill: transparent;
+    stroke: v.$secondary-text-color;
+  }
+
+  .popular-excursions__card-description {
+    color: v.$secondary-text-color;
+    font-size: 1.08333rem;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    line-height: 16px;
+    display: -webkit-inline-box;
+    line-clamp: 4;
+
+    @media (min-width: v.$screen-tablet) {
+      font-size: 1rem;
+      line-height: 15px;
+      // margin-bottom: 44px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+      // margin-bottom: 0;
+    }
+  }
+
+  .popular-excursions__card-btn {
+    font-size: 1rem;
+    padding: 0.9em 3.6em;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    align-self: start;
+    margin-top: auto;
+  }
+
+  .popular-excursions__slider {
+    width: 100%;
+    box-sizing: border-box;
+
+
+    // .swiper-wrapper {
+    //   align-items: stretch !important;
+    // }
+  }
+  // .swiper-navigation стили вынесены в _swiper-navigation.scss
+}
+
+
+
+.popular-excursions__swiper-navigation {
+  margin-top: 54px;
+
+  @media (min-width: v.$screen-tablet) {
+    margin-top: 39px;
+  }
+}
+
+.my-swiper-pagination {
+  position: relative !important;
+  margin-left: 52px;
+  height: 1.6px !important;
+  background-color: #d4d4d4 !important;
+}
+
+.swiper-pagination-progressbar {
+  height: 2px !important;
+}
+
+.swiper-pagination-progressbar-fill {
+  background-color: v.$secondary-color !important;
+}
+
+.popular-excursions__view-all {
+  visibility: hidden;
+
+  @media (min-width: v.$screen-tablet) {
+    visibility: visible;
+    color: v.$primary-text-color;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: end;
+    display: block;
+    align-self: center;
+    margin-bottom: 53px;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    margin-bottom: 0;
+  }
+}
+

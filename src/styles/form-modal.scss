@@ -1,0 +1,188 @@
+@use 'variables' as v;
+
+.form-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+
+        .form-modal__content {
+            transform: scale(1);
+        }
+    }
+}
+
+.form-modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.form-modal__content {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 48px 32px 40px;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    @media (min-width: v.$screen-tablet) {
+        padding: 56px 48px 48px;
+        width: 480px;
+    }
+}
+
+.form-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: v.$primary-text-color;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        color: v.$secondary-color;
+        transform: rotate(90deg);
+    }
+
+    &:active {
+        transform: rotate(90deg) scale(0.9);
+    }
+}
+
+.form-modal__icon {
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: iconAppear 0.5s ease 0.1s backwards;
+
+    @keyframes iconAppear {
+        from {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+.form-modal__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: v.$primary-text-color;
+    margin: 0 0 16px;
+    animation: slideUp 0.5s ease 0.2s backwards;
+
+    @media (min-width: v.$screen-tablet) {
+        font-size: 1.75rem;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.form-modal__message {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    animation: slideUp 0.5s ease 0.3s backwards;
+
+    @media (min-width: v.$screen-tablet) {
+        font-size: 1.125rem;
+    }
+}
+
+// Разные цвета для success/error
+.form-modal[data-type="success"] {
+    .form-modal__icon svg circle,
+    .form-modal__icon svg path {
+        stroke: #4CAF50;
+    }
+
+    .form-modal__title {
+        color: #4CAF50;
+    }
+}
+
+.form-modal[data-type="error"] {
+    .form-modal__icon svg circle,
+    .form-modal__icon svg path {
+        stroke: #F44336;
+    }
+
+    .form-modal__title {
+        color: #F44336;
+    }
+}
+
+// Состояние загрузки для кнопки
+.form-section__btn.loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+}
+
+

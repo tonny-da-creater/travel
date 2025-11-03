@@ -1,0 +1,193 @@
+@use 'variables' as v;
+
+
+.form-section {
+    padding-top: 25px;
+    padding-bottom: 263px;
+    position: relative;
+    isolation: isolate; // Создаёт новый stacking context
+    
+    // Псевдоэлемент для фона
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; // Позади контента
+        filter: brightness(0.7); // Затемнение только фона
+        
+        // Мобильные устройства (по умолчанию)
+        background: image-set(
+            url('/images/human-in-the-forest-mobile.avif') type('image/avif'),
+            url('/images/human-in-the-forest-mobile.webp') type('image/webp'),
+            url('/images/human-in-the-forest-mobile.jpg') type('image/jpg')
+        ) no-repeat center/cover;
+
+        // Retina для мобильных
+        @media all and (min-resolution: 2dppx) {
+            background: image-set(
+                url('/images/human-in-the-forest-mobile@2x.avif') type('image/avif'),
+                url('/images/human-in-the-forest-mobile@2x.webp') type('image/webp'),
+                url('/images/human-in-the-forest-mobile@2x.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+
+        // Планшеты
+        @media (min-width: 768px) {
+            background: image-set(
+                url('/images/human-in-the-forest-tablet.avif') type('image/avif'),
+                url('/images/human-in-the-forest-tablet.webp') type('image/webp'),
+                url('/images/human-in-the-forest-tablet.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+
+        // Retina для планшетов
+        @media (min-width: 768px) and (min-resolution: 2dppx) {
+            background: image-set(
+                url('/images/human-in-the-forest-tablet@2x.avif') type('image/avif'),
+                url('/images/human-in-the-forest-tablet@2x.webp') type('image/webp'),
+                url('/images/human-in-the-forest-tablet@2x.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+
+        // Десктопы
+        @media (min-width: 1440px) {
+            background: image-set(
+                url('/images/human-in-the-forest-desktop.avif') type('image/avif'),
+                url('/images/human-in-the-forest-desktop.webp') type('image/webp'),
+                url('/images/human-in-the-forest-desktop.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+
+        // Retina для десктопов
+        @media (min-width: 1440px) and (min-resolution: 2dppx) {
+            background: image-set(
+                url('/images/human-in-the-forest-desktop@2x.avif') type('image/avif'),
+                url('/images/human-in-the-forest-desktop@2x.webp') type('image/webp'),
+                url('/images/human-in-the-forest-desktop@2x.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+    }
+
+    @media (min-width: v.$screen-tablet) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: v.$screen-tablet) {
+    .form-section .container {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.form-section__title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: v.$secondary-text-color;
+    font-size: 2rem;
+    margin-bottom: 1px;
+}
+
+.form-section__subtitle {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    color: v.$third-color;
+    font-size: 1.167rem;
+}
+
+.form-section__form {
+    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 134px 42px 138px 43px;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: v.$screen-tablet) {
+        width: 400px
+    }
+
+    @media (min-width: v.$screen-desktop) {
+        width: 560px;
+        padding: 128px 95px 143px 104px;
+    }
+}
+
+.form-section__fields {
+    margin-top: 43px;
+    margin-bottom: 39px;
+
+    @media (min-width: v.$screen-tablet) {
+        margin-top: 42px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+        margin-top: 43px;
+    }
+}
+
+.form-section__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 45px;
+}
+
+.form-section__btn {
+    align-self: center;
+    font-size: 1.1667rem;
+    padding: 1.2em 3.7em;
+    cursor: pointer;
+
+    @media (min-width: v.$screen-tablet) {
+        align-self: start;
+    }
+}
+
+// .form-section__label {
+//     font-family: 'Montserrat';
+//     font-weight: 400;
+//     font-size: 1rem;
+//     color: v.$secondary-text-color;
+//     margin-bottom: 8px;
+// }
+
+.form-section__input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid v.$secondary-text-color;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 1rem;
+    color: v.$secondary-text-color;
+    outline: none;
+    transition: border-color 0.3s ease;
+    padding: 0;
+
+    &::placeholder {
+        color: v.$secondary-text-color;
+        transition: color 0.3s ease;
+    }
+
+    &:focus {
+        border-bottom-color: v.$third-color;
+    }
+
+    // Стили для ошибки
+    &.error {
+        border-bottom-color: #F44336;
+        animation: shake 0.5s ease;
+
+        &::placeholder {
+            color: #F44336;
+        }
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+}

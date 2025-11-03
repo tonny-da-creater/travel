@@ -1,0 +1,78 @@
+@use 'variables' as v;
+@use 'sass:color';
+
+.video-posters-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  visibility: hidden; /* скрываем до выравнивания JS */
+  transform: translateY(48%); /* выступает на половину собственной высоты */
+  z-index: 10; /* поверх других элементов */
+
+  &.show {
+    visibility: visible;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    transform: translateY(46%);
+  }
+}
+
+.posters-track {
+  display: flex;
+}
+
+
+.video-container {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 187px;
+  margin-right: 20px;
+  flex: 0 0 295px;
+  cursor: grab;
+  touch-action: none;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.grabbing {
+    cursor: grabbing;
+  }
+
+  @media (min-width: v.$screen-desktop) {
+    flex: 0 0 360px;
+    height: 227px;
+  }
+}
+
+picture {
+  display: block;
+}
+
+.video-poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(0.6);
+  -webkit-user-drag: none;
+}
+
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Embla classes removed */
+
+

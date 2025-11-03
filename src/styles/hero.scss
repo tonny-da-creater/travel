@@ -1,59 +1,61 @@
 @use 'variables' as v;
 
 .hero {
-  background: url('/build/images/entry-section-mobile.jpg') no-repeat center/cover;
+  background: url('/images/entry-section-mobile.jpg') no-repeat center/cover;
   background: image-set(
-    url('/build/images/entry-section-mobile.avif') type('image/avif'),
-    url('/build/images/entry-section-mobile.webp') type('image/webp'),
-    url('/build/images/entry-section-mobile.jpg') type('image/jpg')
+    url('/images/entry-section-mobile.avif') type('image/avif'),
+    url('/images/entry-section-mobile.webp') type('image/webp'),
+    url('/images/entry-section-mobile.jpg') type('image/jpg')
   ) no-repeat center/cover;
-  padding-top: 197px;
-  padding-bottom: 202px;
+  padding: 196px 0 201px 0; // Отступ для header сверху
+  margin-bottom: 236px;
   background-attachment: fixed;
+  position: relative;
 
   @media all and (min-resolution: 2dppx) {
     background: image-set(
-      url('/build/images/entry-section-mobile@2x.avif') type('image/avif'),
-      url('/build/images/entry-section-mobile@2x.webp') type('image/webp'),
-      url('/build/images/entry-section-mobile@2x.jpg') type('image/jpg')
+      url('/images/entry-section-mobile@2x.avif') type('image/avif'),
+      url('/images/entry-section-mobile@2x.webp') type('image/webp'),
+      url('/images/entry-section-mobile@2x.jpg') type('image/jpg')
     ) no-repeat center/cover;
   }
   
   @media (min-width: v.$screen-tablet) {
-    background: url('/build/images/entry-section-tablet.jpg') no-repeat center/cover;
+    background: url('/images/entry-section-tablet.jpg') no-repeat center/cover;
     background: image-set(
-      url('/build/images/entry-section-tablet.avif') type('image/avif'),
-      url('/build/images/entry-section-tablet.webp') type('image/webp'),
-      url('/build/images/entry-section-tablet.jpg') type('image/jpeg')
+      url('/images/entry-section-tablet.avif') type('image/avif'),
+      url('/images/entry-section-tablet.webp') type('image/webp'),
+      url('/images/entry-section-tablet.jpg') type('image/jpeg')
     ) no-repeat center/cover;
-    padding-top: 318px;
-    padding-bottom: 324px;
+    padding-top: 314px; // Добавляем отступ для контента после header
+    padding-bottom: 322px;
 
     @media all and (min-resolution: 2dppx) {
-      background: url('/build/images/entry-section-tablet@2x.jpg') no-repeat center/cover;
+      background: url('/images/entry-section-tablet@2x.jpg') no-repeat center/cover;
       background: image-set(
-        url('/build/images/entry-section-tablet@2x.avif') type('image/avif'),
-        url('/build/images/entry-section-tablet@2x.webp') type('image/webp'),
-        url('/build/images/entry-section-tablet@2x.jpg') type('image/jpeg')
+        url('/images/entry-section-tablet@2x.avif') type('image/avif'),
+        url('/images/entry-section-tablet@2x.webp') type('image/webp'),
+        url('/images/entry-section-tablet@2x.jpg') type('image/jpeg')
       ) no-repeat center/cover;
     }
   }
   @media (min-width: v.$screen-desktop) {
-    background: url('/build/images/entry-section-desktop.jpg') no-repeat center/cover; /* Fallback */
+    background: url('/images/entry-section-desktop.jpg') no-repeat center/cover; /* Fallback */
     background: image-set(
-      url('/build/images/entry-section-desktop.avif') type('image/avif'),
-      url('/build/images/entry-section-desktop.webp') type('image/webp'),
-      url('/build/images/entry-section-desktop.jpg') type('image/jpeg')
+      url('/images/entry-section-desktop.avif') type('image/avif'),
+      url('/images/entry-section-desktop.webp') type('image/webp'),
+      url('/images/entry-section-desktop.jpg') type('image/jpeg')
     ) no-repeat center/cover;
-    padding-top: 230px;
+    padding-top: 224px; // Добавляем отступ для контента после header
     padding-bottom: 256px;
+    margin-bottom: 257px;
 
     @media all and (min-resolution: 2dppx) {
-      background: url('/build/images/entry-section-desktop@2x.jpg') no-repeat center/cover; /* Fallback */
+      background: url('/images/entry-section-desktop@2x.jpg') no-repeat center/cover; /* Fallback */
       background: image-set(
-        url('/build/images/entry-section-desktop@2x.avif') type('image/avif'),
-        url('/build/images/entry-section-desktop@2x.webp') type('image/webp'),
-        url('/build/images/entry-section-desktop@2x.jpg') type('image/jpeg')
+        url('/images/entry-section-desktop@2x.avif') type('image/avif'),
+        url('/images/entry-section-desktop@2x.webp') type('image/webp'),
+        url('/images/entry-section-desktop@2x.jpg') type('image/jpeg')
       ) no-repeat center/cover;
     }
   }
@@ -71,6 +73,7 @@
 
     & small {
         font-family: 'mr_kindlyjasmineg';
+        font-weight: 400;
         color: v.$third-color;
         text-transform: none;
         position: absolute;
@@ -100,22 +103,26 @@
 }
 
 .hero__btn {
-    padding: 1.1em 3.8em;
+    padding: 1.02em 3.8em;
     font-size: 1.1667rem;
-    margin-top: 93px;
+    margin-top: 95px;
     display: inline-block;
 
+    @media (min-width: v.$screen-tablet) {
+      margin-top: 96px;
+    }
+
     @media (min-width: v.$screen-desktop) {
-      margin-top: 75px;
+      margin-top: 79px;
     }
 }
 
 .logo-wrapper {
-  margin-top: 9px;
+  margin-top: 13px;
 
   @media (min-width: v.$screen-desktop) {
     display: flex;
-    margin-top: 0;
+    margin-top: -1px;
   }
 }
 
@@ -137,22 +144,27 @@
 
   @media (min-width: v.$screen-tablet) {
     width: 408px;
+    margin-top: 7px;
   }
 
   @media (min-width: v.$screen-desktop) {
     margin-left: 30px;
+    margin-top: 0;
   }
 }
 
 .hero-social-block {
-  padding-top: 96px;
+  padding-top: 92px;
+  padding-right: 1px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
   &__link {
     align-items: center;
-    margin-bottom: 11px;
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
 
     &:last-child {
       margin-bottom: 0;
@@ -161,12 +173,35 @@
 
   &__item {
     fill: v.$secondary-text-color;
+    transition: fill 0.3s ease, color 0.3s ease;
+    width: 30px;
+    height: 30px;
+
+    
+    &--facebook {
+      stroke: v.$secondary-text-color;
+      fill: none;
+
+      &:hover {
+        stroke: v.$third-color;
+      }
+    }
+
+    &--vk,
+    &--instagram {
+      fill: v.$secondary-text-color;
+
+      &:hover {
+        fill: v.$third-color;
+      }
+    }
   }
 
   @media (min-width: v.$screen-tablet) {
-    padding-top: 22px;
+    padding-top: 10px;
   }
 }
+
 
 @media (min-width: v.$screen-tablet) {
   .hero-container {
@@ -175,6 +210,7 @@
     align-items: center;
   }
 }
+
 
 
 

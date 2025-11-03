@@ -1,0 +1,158 @@
+@use 'variables' as v;
+
+.services {
+    margin-bottom: 146px;
+
+    @media (min-width: v.$screen-desktop) {
+        margin-bottom: 148px;
+    }
+}
+
+.services__wrapper {
+    display: grid;
+    row-gap: 39px;
+
+    @media (min-width: v.$screen-tablet) {
+        row-gap: 38px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 22px;
+    }
+}
+
+
+.services__subtitle {
+    margin-bottom: 86px;
+
+    @media (min-width: v.$screen-tablet) {
+        margin-bottom: 84px;
+    }
+}
+
+.services__card {
+    display: flex;
+    // margin-bottom: 25px;
+    align-items: flex-start; /* выравниваем содержимое по верху */
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+        max-width: 550px;
+    }
+
+    // Grid positioning for desktop
+    &:nth-child(1) {
+        @media (min-width: v.$screen-desktop) {
+            grid-column: 1;
+            grid-row: 1; // Автобусный тур - левый верх
+        }
+    }
+
+    &:nth-child(2) {
+        @media (min-width: v.$screen-desktop) {
+            grid-column: 1;
+            grid-row: 2; // Яхтинг - левый низ
+        }
+    }
+
+    &:nth-child(3) {
+        @media (min-width: v.$screen-desktop) {
+            grid-column: 2;
+            grid-row: 1; // Джиппинг - правый верх
+        }
+    }
+
+    &:nth-child(4) {
+        @media (min-width: v.$screen-desktop) {
+            grid-column: 2;
+            grid-row: 2; // Каньонинг - правый низ
+        }
+    }
+}
+
+.services__card-title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: v.$secondary-color;
+    font-size: 1.5rem;
+    margin-top: -2px;
+}
+
+.services__card-description {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 1.083rem;
+    color: v.$primary-text-color;
+    margin-top: 8px;
+    line-height: 1.23;
+
+    @media (min-width: v.$screen-tablet) {
+        font-size: 1.167rem;
+    }
+}
+
+.services__card-image {
+    height: auto;
+    margin-right: 20px;
+    
+    // Исправление артефактов рендеринга SVG
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    
+    // Принудительное выравнивание по пикселям
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    
+    // Альтернативный подход для WebKit
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    
+    // Дополнительные правила для четкого отображения
+    will-change: transform;
+    display: block;
+    
+    // Для SVG элементов
+    svg {
+        shape-rendering: crispEdges;
+        image-rendering: pixelated;
+    }
+
+    @media (min-width: v.$screen-tablet) {
+        margin-top: 3px;
+    }
+}
+
+.services__cta {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    color: v.$primary-text-color;
+    font-size: 1.083rem;
+    text-align: center;
+    line-height: 1.25;
+    max-width: 550px;
+    margin: 59px auto 39px;
+
+    @media (min-width: v.$screen-tablet) {
+        font-size: 1.167rem;
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+        margin-bottom: 17px;
+    }
+}
+
+.services__btn {
+    padding: 1.1em 3.8em;
+    font-size: 1.1667rem;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}

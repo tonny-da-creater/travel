@@ -1,0 +1,41 @@
+@use 'variables' as v;
+
+.swiper-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+ 
+
+  .my-swiper-button-prev,
+  .my-swiper-button-next {
+    width: 25px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    fill: none;
+    stroke: v.$secondary-color;
+
+    &.disabled {
+      pointer-events: none;
+      stroke: #d4d4d4;
+    }
+  }
+
+  .my-swiper-button-next {
+    margin-left: 35px;
+  }
+
+  .my-swiper-button-prev.disabled {
+    stroke: #d4d4d4;
+  }
+}
+
+.swiper-wrapper {
+  align-items: stretch !important; 
+}
+
+

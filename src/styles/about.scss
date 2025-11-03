@@ -1,0 +1,133 @@
+@use 'variables' as v;
+
+.about {
+    position: relative;
+    padding: 159px 0 159.5px;
+    margin-bottom: 147px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 71%;
+        height: 100%;
+        background: image-set(
+            url('/images/lake-and-mountains-mobile.avif') type('image/avif'),
+            url('/images/lake-and-mountains-mobile.webp') type('image/webp'),
+            url('/images/lake-and-mountains-mobile.jpg') type('image/jpg')
+        ) no-repeat center/cover;
+        border-radius: 0 10px 10px 0;
+        filter: brightness(0.8);
+        z-index: -1;
+
+        // Mobile retina
+        @media (min-resolution: 2dppx) {
+            background: image-set(
+                url('/images/lake-and-mountains-mobile@2x.avif') type('image/avif'),
+                url('/images/lake-and-mountains-mobile@2x.webp') type('image/webp'),
+                url('/images/lake-and-mountains-mobile@2x.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+
+        // Tablet
+        @media (min-width: v.$screen-tablet) {
+            background: image-set(
+                url('/images/lake-and-mountains-tablet.avif') type('image/avif'),
+                url('/images/lake-and-mountains-tablet.webp') type('image/webp'),
+                url('/images/lake-and-mountains-tablet.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+            width: 65.5%;
+        }
+
+        // Tablet retina
+        @media (min-width: v.$screen-tablet) and (min-resolution: 2dppx) {
+            background: image-set(
+                url('/images/lake-and-mountains-tablet@2x.avif') type('image/avif'),
+                url('/images/lake-and-mountains-tablet@2x.webp') type('image/webp'),
+                url('/images/lake-and-mountains-tablet@2x.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+
+        // Desktop
+        @media (min-width: v.$screen-desktop) {
+            background: image-set(
+                url('/images/lake-and-mountains-desktop.avif') type('image/avif'),
+                url('/images/lake-and-mountains-desktop.webp') type('image/webp'),
+                url('/images/lake-and-mountains-desktop.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+            width: 74.4%;
+        }
+
+        // Desktop retina
+        @media all and (min-resolution: 2dppx) and (min-width: v.$screen-desktop) {
+            background: image-set(
+                url('/images/lake-and-mountains-desktop@2x.avif') type('image/avif'),
+                url('/images/lake-and-mountains-desktop@2x.webp') type('image/webp'),
+                url('/images/lake-and-mountains-desktop@2x.jpg') type('image/jpg')
+            ) no-repeat center/cover;
+        }
+    }
+
+    @media (min-width: v.$screen-tablet) {
+        padding: 139px 0 178px 0;
+        margin-bottom: 147px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+        padding: 137px 0 135px 0;
+    }
+}
+
+.about .container {
+    // padding: 0;
+
+    @media (min-width: v.$screen-tablet) {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.about__wrapper {
+    background-color: #ededed;
+    border-radius: 10px;
+    padding: 40px 43px 44px 43px;
+
+    @media (min-width: v.$screen-tablet) {
+        width: 81%;
+        padding: 58px 56px 60px 56px;
+    }
+
+    @media (min-width: v.$screen-desktop) {
+        width: 48.5%;
+        padding: 59px 64px 103px 85px;
+    }
+}
+
+.about__description {
+    font-size: 1.083333rem;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.23;
+
+    &:last-child {
+        margin-top: 10px;
+
+        @media (min-width: v.$screen-tablet) {
+            margin-top: 19px;
+        }
+    }
+
+    @media (min-width: v.$screen-tablet) {
+        font-size: 1.166667rem;
+    }
+}
+
+.about__subtitle {
+    margin-bottom: 16px;
+
+    @media (min-width: v.$screen-tablet) {
+        margin-bottom: 36px;
+    }
+}
