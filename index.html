@@ -7,9 +7,7 @@
   <title>Pero Travel</title>
   <meta name="description" content="Путешествуйте вместе с Pero Travel - экскурсии, туры и незабываемые впечатления">
   
-  <!-- DNS Prefetch и Preconnect для внешних ресурсов -->
-  <link rel="preconnect" href="https://www.youtube.com">
-  <link rel="dns-prefetch" href="https://www.youtube.com">
+  <!-- DNS Prefetch для социальных сетей в hero (первый экран) -->
   <link rel="dns-prefetch" href="https://vk.com">
   <link rel="dns-prefetch" href="https://instagram.com">
   <link rel="dns-prefetch" href="https://facebook.com">
@@ -24,7 +22,7 @@
   <link rel="preload" href="./fonts/mr_kindlyjasmineg.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- Основной CSS -->
-  <link rel="stylesheet" href="./styles/style.min.css?v=1762947172400">
+  <link rel="stylesheet" href="./styles/style.min.css?v=1762952203689">
 </head>
 <body>
   <header class="header">
@@ -89,17 +87,17 @@
           <picture>
               <source srcset="./images/man-in-boat@2x.avif 2x, ./images/man-in-boat.avif 1x" type="image/avif">
               <source srcset="./images/man-in-boat@2x.webp 2x, ./images/man-in-boat.webp 1x" type="image/webp">
-              <img src="./images/man-in-boat.jpg" alt="Man in boat video poster" class="video-poster" width="295" height="187">
+              <img src="./images/man-in-boat.jpg" alt="Man in boat video poster" class="video-poster" loading="lazy" width="295" height="187">
             </picture>
-            <img src="./images/play.svg" class="play" alt="Play video">
+            <img src="./images/play.svg" class="play" loading="lazy" alt="Play video">
           </div>
           <div class="video-container" data-video-id="ytplayer2">
           <picture>
               <source srcset="./images/road-and-forest@2x.avif 2x, ./images/road-and-forest.avif 1x" type="image/avif">
               <source srcset="./images/road-and-forest@2x.webp 2x, ./images/road-and-forest.webp 1x" type="image/webp">
-              <img src="./images/road-and-forest.jpg" alt="Road and forest video poster" class="video-poster" width="295" height="187">
+              <img src="./images/road-and-forest.jpg" alt="Road and forest video poster" class="video-poster" loading="lazy" width="295" height="187">
             </picture>
-            <img src="./images/play.svg" class="play" alt="Play video">
+            <img src="./images/play.svg" class="play" loading="lazy" alt="Play video">
           </div>
         </div>
       </div>
@@ -246,28 +244,28 @@
         <h2 class="subtitle services__subtitle">Виды экскурсий</h2>
         <div class="services__wrapper">
           <div class="services__card">
-            <img src="./images/bus.svg" alt="Автобусный тур" class="services__card-image">
+            <img src="./images/bus.svg" alt="Автобусный тур" class="services__card-image" loading="lazy">
             <div class="services__card-content">
               <h3 class="services__card-title">Автобусный тур</h3>
               <p class="services__card-description">Один из самых насыщенных впечатлениями, доступных по цене и популярных видов отдыха. Во время одной поездки можно посмотреть достопримечательности сразу нескольких городов, причем обойдется это едва ли не в разы дешевле классического экскурсионного тура с ночевками в отелях.</p>
             </div>
           </div>
           <div class="services__card">
-            <img src="./images/yacht.svg" alt="Автобусный тур" class="services__card-image">
+            <img src="./images/yacht.svg" alt="Автобусный тур" class="services__card-image" loading="lazy">
             <div class="services__card-content">
               <h3 class="services__card-title">Яхтинг</h3>
               <p class="services__card-description">Это то же, что круиз на лайнере или прогулка на пароме, только на яхте больше свободы, размеры судна в разы меньше, нет назойливой команды, можно самостоятельно почувствовать себя капитаном, постоять за штурвалом. Именно здесь вы почувствуете величайшие просторы Черногор моря.</p>
             </div>
           </div>
           <div class="services__card">
-            <img src="./images/car.svg" alt="Джиппинг" class="services__card-image">
+            <img src="./images/car.svg" alt="Джиппинг" class="services__card-image" loading="lazy">
             <div class="services__card-content">
               <h3 class="services__card-title">Джиппинг</h3>
               <p class="services__card-description">Это путешествие на автомобилях высокой проходимости с преодолением естественных препятствий, это экстремальный вид спорта и отдыха, представляющий собой прохождение туристического маршрута по бездорожью на автомобилях.</p>
             </div>
           </div>
           <div class="services__card">
-            <img src="./images/canyon.svg" alt="Каньонинг" class="services__card-image">
+            <img src="./images/canyon.svg" alt="Каньонинг" class="services__card-image" loading="lazy">
             <div class="services__card-content">
               <h3 class="services__card-title">Каньонинг</h3>
               <p class="services__card-description">Это экстремально-спортивный вид отдыха, который заключается в преодолении каньонов (обводненных или нет) при помощи альпинистского и иного снаряжения, а иногда и вброд, но без лодок или иных плавсредств.</p>
@@ -296,25 +294,25 @@
               <source srcset="./images/lake-and-mountains-gallery-desktop@2x.avif 2x, /images/lake-and-mountains-gallery-desktop.avif 1x" type="image/avif">
               <source srcset="./images/lake-and-mountains-gallery-desktop@2x.webp 2x, /images/lake-and-mountains-gallery-desktop.webp 1x" type="image/webp">
               <source srcset="./images/lake-and-mountains-gallery-desktop@2x.jpg 2x, /images/lake-and-mountains-gallery-desktop.jpg 1x">
-              <img src="./images/lake-and-mountains-gallery-desktop.jpg" alt="Gallery image" class="gallery__image" width="280.5" height="280.5">
+              <img src="./images/lake-and-mountains-gallery-desktop.jpg" alt="Gallery image" class="gallery__image" width="280.5" height="280.5" loading="lazy">
             </picture>
             <picture class="gallery__picture">
               <source srcset="./images/woman-on-horse-gallery-desktop@2x.avif 2x, /images/woman-on-horse-gallery-desktop.avif 1x" type="image/avif">
               <source srcset="./images/woman-on-horse-gallery-desktop@2x.webp 2x, /images/woman-on-horse-gallery-desktop.webp 1x" type="image/webp">
               <source srcset="./images/woman-on-horse-gallery-desktop@2x.jpg 2x, /images/woman-on-horse-gallery-desktop.jpg 1x">
-              <img src="./images/woman-on-horse-gallery-desktop.jpg" alt="Gallery image" class="gallery__image" width="263.95" height="263.95">
+              <img src="./images/woman-on-horse-gallery-desktop.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="263.95" height="263.95">
             </picture>
             <picture class="gallery__picture">
               <source srcset="./images/arch-desktop@2x.avif 2x, /images/arch-desktop.avif 1x" type="image/avif">
               <source srcset="./images/arch-desktop@2x.webp 2x, /images/arch-desktop.webp 1x" type="image/webp">
               <source srcset="./images/arch-desktop@2x.jpg 2x, /images/arch-desktop.jpg 1x">
-              <img src="./images/arch-desktop.jpg" alt="Gallery image" class="gallery__image" width="123.29" height="123.29">
+              <img src="./images/arch-desktop.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="123.29" height="123.29">
             </picture>
             <picture class="gallery__picture">
               <source srcset="./images/town-near-forest-desktop@2x.avif 2x, /images/town-near-forest-desktop.avif 1x" type="image/avif">
               <source srcset="./images/town-near-forest-desktop@2x.webp 2x, /images/town-near-forest-desktop.webp 1x" type="image/webp">
               <source srcset="./images/town-near-forest-desktop@2x.jpg 2x, /images/town-near-forest-desktop.jpg 1x">
-              <img src="./images/town-near-forest-desktop.jpg" alt="Gallery image" class="gallery__image" width="123.29" height="123.29">
+              <img src="./images/town-near-forest-desktop.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="123.29" height="123.29">
             </picture>
           </div>
 
@@ -329,7 +327,7 @@
             <source media="(min-width: 768px)" srcset="./images/waterfall-gallery-tablet@2x.jpg 2x, /images/waterfall-gallery-tablet.jpg 1x">
             <source srcset="./images/waterfall-gallery-mobile@2x.avif 2x, /images/waterfall-gallery-mobile.avif 1x" type="image/avif">
             <source srcset="./images/waterfall-gallery-mobile@2x.webp 2x, /images/waterfall-gallery-mobile.webp 1x" type="image/webp">
-            <img src="./images/waterfall-gallery-mobile.jpg" alt="Gallery image" class="gallery__image" width="180" height="400">
+            <img src="./images/waterfall-gallery-mobile.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="180" height="400">
           </picture>
           <picture class="gallery__picture">
               <source media="(min-width: 768px)" srcset="./images/quadbike-gallery-tablet@2x.avif 2x, /images/quadbike-gallery-tablet.avif 1x" type="image/avif">
@@ -337,7 +335,7 @@
               <source media="(min-width: 768px)" srcset="./images/quadbike-gallery-tablet@2x.jpg 2x, /images/quadbike-gallery-tablet.jpg 1x">
               <source srcset="./images/quadbike-gallery-mobile@2x.avif 2x, /images/quadbike-gallery-mobile.avif 1x" type="image/avif">
               <source srcset="./images/quadbike-gallery-mobile@2x.webp 2x, /images/quadbike-gallery-mobile.webp 1x" type="image/webp">
-              <img src="./images/quadbike-gallery-mobile.jpg" alt="Gallery image" class="gallery__image" width="180" height="186">
+              <img src="./images/quadbike-gallery-mobile.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="180" height="186">
             </picture>
           <picture class="gallery__picture">
               <source media="(min-width: 768px)" srcset="./images/beach-on-the-lake-tablet@2x.avif 2x, /images/beach-on-the-lake-tablet.avif 1x" type="image/avif">
@@ -345,18 +343,18 @@
               <source media="(min-width: 768px)" srcset="./images/beach-on-the-lake-tablet@2x.jpg 2x, /images/beach-on-the-lake-tablet.jpg 1x">
               <source srcset="./images/beach-on-the-lake-mobile@2x.avif 2x, /images/beach-on-the-lake-mobile.avif 1x" type="image/avif">
               <source srcset="./images/beach-on-the-lake-mobile@2x.webp 2x, /images/beach-on-the-lake-mobile.webp 1x" type="image/webp">
-              <img src="./images/beach-on-the-lake-mobile.jpg" alt="Gallery image" class="gallery__image" width="180" height="194">
+              <img src="./images/beach-on-the-lake-mobile.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="180" height="194">
             </picture>
             <picture class="gallery__picture">
               <source media="(min-width: 1440px)" srcset="./images/lake-and-mountains-gallery-desktop@2x.jpg 2x, /images/lake-and-mountains-gallery-desktop.jpg 1x">
               <source srcset="./images/lake-and-mountains-gallery-mobile@2x.jpg 2x, /images/lake-and-mountains-gallery-mobile.jpg 1x">
-              <img src="./images/lake-and-mountains-gallery-mobile.jpg" alt="Gallery image" class="gallery__image" width="380" height="260">
+              <img src="./images/lake-and-mountains-gallery-mobile.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="380" height="260">
             </picture>
           <picture class="gallery__picture">
               <source media="(min-width: 768px)" srcset="./images/tower-in-the-forest-tablet@2x.avif 2x, /images/tower-in-the-forest-tablet.avif 1x" type="image/avif">
               <source media="(min-width: 768px)" srcset="./images/tower-in-the-forest-tablet@2x.webp 2x, /images/tower-in-the-forest-tablet.webp 1x" type="image/webp">
               <source media="(min-width: 768px)" srcset="./images/tower-in-the-forest-tablet@2x.jpg 2x, /images/tower-in-the-forest-tablet.jpg 1x">
-              <img src="./images/tower-in-the-forest-tablet.jpg" alt="Gallery image" class="gallery__image" width="216" height="264">
+              <img src="./images/tower-in-the-forest-tablet.jpg" alt="Gallery image" class="gallery__image" loading="lazy" width="216" height="264">
           </picture>
           </div>
         </div>
@@ -380,7 +378,7 @@
                 <source media="(min-width: 1440px)" srcset="./images/tourists-desktop@2x.jpg 2x, /images/tourists-desktop.jpg 1x">
                     <source srcset="./images/tourists-mobile@2x.avif 2x, /images/tourists-mobile.avif 1x" type="image/avif">
                     <source srcset="./images/tourists-mobile@2x.webp 2x, /images/tourists-mobile.webp 1x" type="image/webp">
-                    <img src="./images/tourists-mobile.jpg" alt="Tourist photo" class="reviews__slide-photo" width="80" height="80">
+                    <img src="./images/tourists-mobile.jpg" alt="Tourist photo" class="reviews__slide-photo" loading="lazy" width="80" height="80">
                   </picture>
               <div class="reviews__slide-content">
                   <h3 class="reviews__slide-name">Иван Иванов, 25 лет</h3>
@@ -399,7 +397,7 @@
                 <source media="(min-width: 1440px)" srcset="./images/tourists-desktop@2x.jpg 2x, /images/tourists-desktop.jpg 1x">
                     <source srcset="./images/tourists-mobile@2x.avif 2x, /images/tourists-mobile.avif 1x" type="image/avif">
                     <source srcset="./images/tourists-mobile@2x.webp 2x, /images/tourists-mobile.webp 1x" type="image/webp">
-                    <img src="./images/tourists-mobile.jpg" alt="Tourist photo" class="reviews__slide-photo" width="80" height="80">
+                    <img src="./images/tourists-mobile.jpg" alt="Tourist photo" class="reviews__slide-photo" loading="lazy" width="80" height="80">
                   </picture>
               <div class="reviews__slide-content">
                   <h3 class="reviews__slide-name">Иван Иванов, 25 лет</h3>
@@ -418,7 +416,7 @@
                 <source media="(min-width: 1440px)" srcset="./images/tourists-desktop@2x.jpg 2x, /images/tourists-desktop.jpg 1x">
                     <source srcset="./images/tourists-mobile@2x.avif 2x, /images/tourists-mobile.avif 1x" type="image/avif">
                     <source srcset="./images/tourists-mobile@2x.webp 2x, /images/tourists-mobile.webp 1x" type="image/webp">
-                    <img src="./images/tourists-mobile.jpg" alt="Tourist photo" class="reviews__slide-photo" width="80" height="80">
+                    <img src="./images/tourists-mobile.jpg" alt="Tourist photo" class="reviews__slide-photo" loading="lazy" width="80" height="80">
                   </picture>
               <div class="reviews__slide-content">
                   <h3 class="reviews__slide-name">Иван Иванов, 25 лет</h3>
@@ -543,8 +541,7 @@
     </div>
   </div>
 
-  <script src="https://www.youtube.com/iframe_api" async></script>
-  <script src="./scripts/main.min.js?v=1762947172400" defer></script>
+  <script src="./scripts/main.min.js?v=1762952203689" defer></script>
 </body>
 </html>
 
