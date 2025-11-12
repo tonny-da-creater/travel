@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = (env = {}) => {
@@ -10,96 +9,57 @@ module.exports = (env = {}) => {
 
   return {
     mode: isProduction ? 'production' : 'development',
+
     entry: {
       main: './src/scripts/main.js',
     },
+
     output: {
       filename: '[name].min.js',
       path: path.resolve(__dirname, 'build/scripts'),
-      clean: true,
+      clean: false,
     },
+
     module: {
       rules: [
         {
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
-            { 
-              loader: 'css-loader', 
-              options: { 
+            {
+              loader: 'css-loader',
+              options: {
                 sourceMap: !isProduction,
-                url: {
-                  filter: (url) => {
-                    // Не обрабатывать абсолютные пути (начинающиеся с /)
-                    // Они обрабатываются Gulp
-                    if (url.startsWith('/')) return false;
-                    return true;
-                  },
-                },
-              } 
+                url: false, // ← ОТКЛЮЧЕНО — не ломаем сборку
+                importLoaders: 2, // ← ОБЯЗАТЕЛЬНО: для @import
+              },
             },
             {
               loader: 'postcss-loader',
               options: {
+                sourceMap: !isProduction,
                 postcssOptions: {
                   plugins: [
                     postcssPresetEnv({
-                      browsers: [
-                        'last 2 versions',
-                        '> 0.5%',
-                        'not dead',
-                        'ie 11',
-                        'Safari 9',
-                      ],
+                      stage: 3,
                       autoprefixer: { grid: true },
                     }),
                   ],
                 },
-                sourceMap: !isProduction,
               },
             },
-            { loader: 'sass-loader', options: { sourceMap: !isProduction } },
+            {
+              loader: 'sass-loader',
+              options: { sourceMap: !isProduction },
+            },
           ],
         },
         {
           test: /\.css$/,
-          include: /node_modules/, // Обрабатываем CSS из node_modules (Swiper)
+          include: /node_modules/,
           use: [
             MiniCssExtractPlugin.loader,
-            { 
-              loader: 'css-loader', 
-              options: { 
-                sourceMap: !isProduction,
-                url: {
-                  filter: (url) => {
-                    // Не обрабатывать абсолютные пути (начинающиеся с /)
-                    // Они обрабатываются Gulp
-                    if (url.startsWith('/')) return false;
-                    return true;
-                  },
-                },
-              } 
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                postcssOptions: {
-                  plugins: [
-                    postcssPresetEnv({
-                      browsers: [
-                        'last 2 versions',
-                        '> 0.5%',
-                        'not dead',
-                        'ie 11',
-                        'Safari 9',
-                      ],
-                      autoprefixer: { grid: true },
-                    }),
-                  ],
-                },
-                sourceMap: !isProduction,
-              },
-            },
+            { loader: 'css-loader', options: { sourceMap: !isProduction } },
           ],
         },
         {
@@ -109,66 +69,43 @@ module.exports = (env = {}) => {
             loader: 'babel-loader',
             options: {
               presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    targets: {
-                      browsers: [
-                        'last 2 versions',
-                        '> 0.5%',
-                        'not dead',
-                        'ie 11',
-                        'Safari 9',
-                      ],
-                    },
-                    useBuiltIns: 'usage',
-                    corejs: { version: 3, proposals: false },
-                  },
-                ],
+                ['@babel/preset-env', {
+                  targets: '> 0.5%, last 2 versions, not dead',
+                  useBuiltIns: 'usage',
+                  corejs: 3,
+                }],
               ],
-              sourceMaps: !isProduction,
             },
-          },
-        },
-        {
-          test: /\.(woff|woff2)$/,
-          type: 'asset/resource',
-          generator: {
-            filename: '../fonts/[name][ext]',
           },
         },
       ],
     },
+
     plugins: [
       new MiniCssExtractPlugin({
         filename: '../styles/style.min.css',
       }),
       ...(!isProduction ? [new webpack.HotModuleReplacementPlugin()] : []),
     ],
+
     optimization: {
       minimize: isProduction,
       minimizer: [
-        new TerserPlugin({ extractComments: false }),
+        '...', // Сохраняет TerserPlugin для JS
         new CssMinimizerPlugin(),
       ],
     },
+
     devServer: {
-      static: {
-        directory: path.join(__dirname, 'build'),
-      },
+      static: { directory: path.join(__dirname, 'build') },
       compress: true,
       port: 8080,
       hot: true,
-      watchFiles: ['src/**/*.html'],
       liveReload: true,
       open: true,
-      devMiddleware: {
-        writeToDisk: true,
-      },
+      devMiddleware: { writeToDisk: true }, // ← важно для Gulp
     },
+
     devtool: isProduction ? false : 'source-map',
-    resolve: {
-      modules: ['node_modules'],
-    },
   };
 };

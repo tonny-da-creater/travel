@@ -2,6 +2,7 @@
 
 .reviews {
   margin-bottom: 195px;
+  overflow: hidden; // ✅ Предотвращаем "вылезание" quotes за пределы секции
 
   @media (min-width: v.$screen-tablet) {
     margin-bottom: 207px;
@@ -81,6 +82,8 @@
 }
 
 .reviews__slider .reviews__slide {
+  position: relative; // ✅ Для корректного позиционирования quotes
+  overflow: hidden; // ✅ Quotes остаются внутри слайда
   background-color: #ededed;
   min-height: 447px;
   padding: 32px 24px 48px 28px;
@@ -170,6 +173,7 @@
   fill: v.$third-color;
   width: 143px;
   height: 111px;
+  z-index: 1; // ✅ Quotes всегда над контентом слайда
 
   @media (min-width: v.$screen-tablet) {
     bottom: 12px;
@@ -185,7 +189,6 @@
     width: 177px;
   }
 }
-
 
 // .reviews__slider {
 //   .swiper-wrapper {
@@ -206,3 +209,6 @@
     margin-top: 39px;
   }
 }
+
+
+

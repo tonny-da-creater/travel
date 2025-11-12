@@ -13,9 +13,9 @@
         width: 71%;
         height: 100%;
         background: image-set(
-            url('/images/lake-and-mountains-mobile.avif') type('image/avif'),
-            url('/images/lake-and-mountains-mobile.webp') type('image/webp'),
-            url('/images/lake-and-mountains-mobile.jpg') type('image/jpg')
+            url('../images/lake-and-mountains-mobile.avif') type('image/avif'),
+            url('../images/lake-and-mountains-mobile.webp') type('image/webp'),
+            url('../images/lake-and-mountains-mobile.jpg') type('image/jpg')
         ) no-repeat center/cover;
         border-radius: 0 10px 10px 0;
         filter: brightness(0.8);
@@ -24,18 +24,18 @@
         // Mobile retina
         @media (min-resolution: 2dppx) {
             background: image-set(
-                url('/images/lake-and-mountains-mobile@2x.avif') type('image/avif'),
-                url('/images/lake-and-mountains-mobile@2x.webp') type('image/webp'),
-                url('/images/lake-and-mountains-mobile@2x.jpg') type('image/jpg')
+                url('../images/lake-and-mountains-mobile@2x.avif') type('image/avif'),
+                url('../images/lake-and-mountains-mobile@2x.webp') type('image/webp'),
+                url('../images/lake-and-mountains-mobile@2x.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
 
         // Tablet
         @media (min-width: v.$screen-tablet) {
             background: image-set(
-                url('/images/lake-and-mountains-tablet.avif') type('image/avif'),
-                url('/images/lake-and-mountains-tablet.webp') type('image/webp'),
-                url('/images/lake-and-mountains-tablet.jpg') type('image/jpg')
+                url('../images/lake-and-mountains-tablet.avif') type('image/avif'),
+                url('../images/lake-and-mountains-tablet.webp') type('image/webp'),
+                url('../images/lake-and-mountains-tablet.jpg') type('image/jpg')
             ) no-repeat center/cover;
             width: 65.5%;
         }
@@ -43,18 +43,18 @@
         // Tablet retina
         @media (min-width: v.$screen-tablet) and (min-resolution: 2dppx) {
             background: image-set(
-                url('/images/lake-and-mountains-tablet@2x.avif') type('image/avif'),
-                url('/images/lake-and-mountains-tablet@2x.webp') type('image/webp'),
-                url('/images/lake-and-mountains-tablet@2x.jpg') type('image/jpg')
+                url('../images/lake-and-mountains-tablet@2x.avif') type('image/avif'),
+                url('../images/lake-and-mountains-tablet@2x.webp') type('image/webp'),
+                url('../images/lake-and-mountains-tablet@2x.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
 
         // Desktop
         @media (min-width: v.$screen-desktop) {
             background: image-set(
-                url('/images/lake-and-mountains-desktop.avif') type('image/avif'),
-                url('/images/lake-and-mountains-desktop.webp') type('image/webp'),
-                url('/images/lake-and-mountains-desktop.jpg') type('image/jpg')
+                url('../images/lake-and-mountains-desktop.avif') type('image/avif'),
+                url('../images/lake-and-mountains-desktop.webp') type('image/webp'),
+                url('../images/lake-and-mountains-desktop.jpg') type('image/jpg')
             ) no-repeat center/cover;
             width: 74.4%;
         }
@@ -62,9 +62,9 @@
         // Desktop retina
         @media all and (min-resolution: 2dppx) and (min-width: v.$screen-desktop) {
             background: image-set(
-                url('/images/lake-and-mountains-desktop@2x.avif') type('image/avif'),
-                url('/images/lake-and-mountains-desktop@2x.webp') type('image/webp'),
-                url('/images/lake-and-mountains-desktop@2x.jpg') type('image/jpg')
+                url('../images/lake-and-mountains-desktop@2x.avif') type('image/avif'),
+                url('../images/lake-and-mountains-desktop@2x.webp') type('image/webp'),
+                url('../images/lake-and-mountains-desktop@2x.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
     }
@@ -131,3 +131,6 @@
         margin-bottom: 36px;
     }
 }
+
+
+

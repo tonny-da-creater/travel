@@ -100,9 +100,9 @@
                   rgba(0, 0, 0, 1) 100%
                 ),
                 image-set(
-                  url('/images/bridge-mobile.avif') type('image/avif'),
-                  url('/images/bridge-mobile.webp') type('image/webp'),
-                  url('/images/bridge-mobile.jpg') type('image/jpg')
+                  url('../images/bridge-mobile.avif') type('image/avif'),
+                  url('../images/bridge-mobile.webp') type('image/webp'),
+                  url('../images/bridge-mobile.jpg') type('image/jpg')
                 ) no-repeat center/cover;
 
     // Retina для мобильных
@@ -115,9 +115,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/bridge-mobile@2x.avif') type('image/avif'),
-                    url('/images/bridge-mobile@2x.webp') type('image/webp'),
-                    url('/images/bridge-mobile@2x.jpg') type('image/jpg')
+                    url('../images/bridge-mobile@2x.avif') type('image/avif'),
+                    url('../images/bridge-mobile@2x.webp') type('image/webp'),
+                    url('../images/bridge-mobile@2x.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
 
@@ -131,9 +131,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/bridge-tablet.avif') type('image/avif'),
-                    url('/images/bridge-tablet.webp') type('image/webp'),
-                    url('/images/bridge-tablet.jpg') type('image/jpg')
+                    url('../images/bridge-tablet.avif') type('image/avif'),
+                    url('../images/bridge-tablet.webp') type('image/webp'),
+                    url('../images/bridge-tablet.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
 
@@ -147,9 +147,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/bridge-tablet@2x.avif') type('image/avif'),
-                    url('/images/bridge-tablet@2x.webp') type('image/webp'),
-                    url('/images/bridge-tablet@2x.jpg') type('image/jpg')
+                    url('../images/bridge-tablet@2x.avif') type('image/avif'),
+                    url('../images/bridge-tablet@2x.webp') type('image/webp'),
+                    url('../images/bridge-tablet@2x.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
 
@@ -163,9 +163,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/bridge-desktop.avif') type('image/avif'),
-                    url('/images/bridge-desktop.webp') type('image/webp'),
-                    url('/images/bridge-desktop.jpg') type('image/jpg')
+                    url('../images/bridge-desktop.avif') type('image/avif'),
+                    url('../images/bridge-desktop.webp') type('image/webp'),
+                    url('../images/bridge-desktop.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
 
@@ -179,9 +179,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/bridge-desktop@2x.avif') type('image/avif'),
-                    url('/images/bridge-desktop@2x.webp') type('image/webp'),
-                    url('/images/bridge-desktop@2x.jpg') type('image/jpg')
+                    url('../images/bridge-desktop@2x.avif') type('image/avif'),
+                    url('../images/bridge-desktop@2x.webp') type('image/webp'),
+                    url('../images/bridge-desktop@2x.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
   }
@@ -194,7 +194,7 @@
                   rgba(0, 0, 0, 0.7) 80%,
                   rgba(0, 0, 0, 1) 100%
                 ),
-                url('/images/woman-on-horse-mobile.jpg') no-repeat center/cover;
+                url('../images/woman-on-horse-mobile.jpg') no-repeat center/cover;
     background: linear-gradient(
                   to bottom,
                   rgba(0, 0, 0, 0.2) 0%,
@@ -203,9 +203,9 @@
                   rgba(0, 0, 0, 1) 100%
                 ),
                 image-set(
-                  url('/images/woman-on-horse-mobile.avif') type('image/avif'),
-                  url('/images/woman-on-horse-mobile.webp') type('image/webp'),
-                  url('/images/woman-on-horse-mobile.jpg') type('image/jpg')
+                  url('../images/woman-on-horse-mobile.avif') type('image/avif'),
+                  url('../images/woman-on-horse-mobile.webp') type('image/webp'),
+                  url('../images/woman-on-horse-mobile.jpg') type('image/jpg')
                 ) no-repeat center/cover;
 
     @media all and (min-resolution: 2dppx) {
@@ -216,7 +216,7 @@
                     rgba(0, 0, 0, 0.7) 80%,
                     rgba(0, 0, 0, 1) 100%
                   ),
-                  url('/images/woman-on-horse-mobile@2x.jpg') no-repeat center/cover;
+                  url('../images/woman-on-horse-mobile@2x.jpg') no-repeat center/cover;
       background: linear-gradient(
                     to bottom,
                     rgba(0, 0, 0, 0.2) 0%,
@@ -225,9 +225,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/woman-on-horse-mobile@2x.avif') type('image/avif'),
-                    url('/images/woman-on-horse-mobile@2x.webp') type('image/webp'),
-                    url('/images/woman-on-horse-mobile@2x.jpg') type('image/jpg')
+                    url('../images/woman-on-horse-mobile@2x.avif') type('image/avif'),
+                    url('../images/woman-on-horse-mobile@2x.webp') type('image/webp'),
+                    url('../images/woman-on-horse-mobile@2x.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
   }
@@ -240,7 +240,7 @@
                   rgba(0, 0, 0, 0.7) 80%,
                   rgba(0, 0, 0, 1) 100%
                 ),
-                url('/images/waterfall-mobile.jpg') no-repeat center/cover;
+                url('../images/waterfall-mobile.jpg') no-repeat center/cover;
     background: linear-gradient(
                   to bottom,
                   rgba(0, 0, 0, 0.2) 0%,
@@ -249,9 +249,9 @@
                   rgba(0, 0, 0, 1) 100%
                 ),
                 image-set(
-                  url('/images/waterfall-mobile.avif') type('image/avif'),
-                  url('/images/waterfall-mobile.webp') type('image/webp'),
-                  url('/images/waterfall-mobile.jpg') type('image/jpg')
+                  url('../images/waterfall-mobile.avif') type('image/avif'),
+                  url('../images/waterfall-mobile.webp') type('image/webp'),
+                  url('../images/waterfall-mobile.jpg') type('image/jpg')
                 ) no-repeat center/cover;
     // min-height: 400px;
 
@@ -263,7 +263,7 @@
                     rgba(0, 0, 0, 0.7) 80%,
                     rgba(0, 0, 0, 1) 100%
                   ),
-                  url('/images/waterfall-mobile@2x.jpg') no-repeat center/cover;
+                  url('../images/waterfall-mobile@2x.jpg') no-repeat center/cover;
       background: linear-gradient(
                     to bottom,
                     rgba(0, 0, 0, 0.2) 0%,
@@ -272,9 +272,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/waterfall-mobile@2x.avif') type('image/avif'),
-                    url('/images/waterfall-mobile@2x.webp') type('image/webp'),
-                    url('/images/waterfall-mobile@2x.jpg') type('image/jpg')
+                    url('../images/waterfall-mobile@2x.avif') type('image/avif'),
+                    url('../images/waterfall-mobile@2x.webp') type('image/webp'),
+                    url('../images/waterfall-mobile@2x.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
   }
@@ -287,7 +287,7 @@
                   rgba(0, 0, 0, 0.7) 80%,
                   rgba(0, 0, 0, 1) 100%
                 ),
-                url('/images/charches-mobile.jpg') no-repeat center/cover;
+                url('../images/charches-mobile.jpg') no-repeat center/cover;
     background: linear-gradient(
                   to bottom,
                   rgba(0, 0, 0, 0.2) 0%,
@@ -296,9 +296,9 @@
                   rgba(0, 0, 0, 1) 100%
                 ),
                 image-set(
-                  url('/images/charches-mobile.avif') type('image/avif'),
-                  url('/images/charches-mobile.webp') type('image/webp'),
-                  url('/images/charches-mobile.jpg') type('image/jpg')
+                  url('../images/charches-mobile.avif') type('image/avif'),
+                  url('../images/charches-mobile.webp') type('image/webp'),
+                  url('../images/charches-mobile.jpg') type('image/jpg')
                 ) no-repeat center/cover;
     // min-height: 400px;
 
@@ -310,7 +310,7 @@
                     rgba(0, 0, 0, 0.7) 80%,
                     rgba(0, 0, 0, 1) 100%
                   ),
-                  url('/images/charches-mobile@2x.jpg') no-repeat center/cover;
+                  url('../images/charches-mobile@2x.jpg') no-repeat center/cover;
       background: linear-gradient(
                     to bottom,
                     rgba(0, 0, 0, 0.2) 0%,
@@ -319,9 +319,9 @@
                     rgba(0, 0, 0, 1) 100%
                   ),
                   image-set(
-                    url('/images/charches-mobile@2x.avif') type('image/avif'),
-                    url('/images/charches-mobile@2x.webp') type('image/webp'),
-                    url('/images/charches-mobile@2x.jpg') type('image/jpg')
+                    url('../images/charches-mobile@2x.avif') type('image/avif'),
+                    url('../images/charches-mobile@2x.webp') type('image/webp'),
+                    url('../images/charches-mobile@2x.jpg') type('image/jpg')
                   ) no-repeat center/cover;
     }
   }
@@ -479,4 +479,7 @@
     margin-bottom: 0;
   }
 }
+
+
+
 

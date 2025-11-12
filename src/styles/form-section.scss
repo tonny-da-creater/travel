@@ -20,53 +20,53 @@
         
         // Мобильные устройства (по умолчанию)
         background: image-set(
-            url('/images/human-in-the-forest-mobile.avif') type('image/avif'),
-            url('/images/human-in-the-forest-mobile.webp') type('image/webp'),
-            url('/images/human-in-the-forest-mobile.jpg') type('image/jpg')
+            url('../images/human-in-the-forest-mobile.avif') type('image/avif'),
+            url('../images/human-in-the-forest-mobile.webp') type('image/webp'),
+            url('../images/human-in-the-forest-mobile.jpg') type('image/jpg')
         ) no-repeat center/cover;
 
         // Retina для мобильных
         @media all and (min-resolution: 2dppx) {
             background: image-set(
-                url('/images/human-in-the-forest-mobile@2x.avif') type('image/avif'),
-                url('/images/human-in-the-forest-mobile@2x.webp') type('image/webp'),
-                url('/images/human-in-the-forest-mobile@2x.jpg') type('image/jpg')
+                url('../images/human-in-the-forest-mobile@2x.avif') type('image/avif'),
+                url('../images/human-in-the-forest-mobile@2x.webp') type('image/webp'),
+                url('../images/human-in-the-forest-mobile@2x.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
 
         // Планшеты
         @media (min-width: 768px) {
             background: image-set(
-                url('/images/human-in-the-forest-tablet.avif') type('image/avif'),
-                url('/images/human-in-the-forest-tablet.webp') type('image/webp'),
-                url('/images/human-in-the-forest-tablet.jpg') type('image/jpg')
+                url('../images/human-in-the-forest-tablet.avif') type('image/avif'),
+                url('../images/human-in-the-forest-tablet.webp') type('image/webp'),
+                url('../images/human-in-the-forest-tablet.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
 
         // Retina для планшетов
         @media (min-width: 768px) and (min-resolution: 2dppx) {
             background: image-set(
-                url('/images/human-in-the-forest-tablet@2x.avif') type('image/avif'),
-                url('/images/human-in-the-forest-tablet@2x.webp') type('image/webp'),
-                url('/images/human-in-the-forest-tablet@2x.jpg') type('image/jpg')
+                url('../images/human-in-the-forest-tablet@2x.avif') type('image/avif'),
+                url('../images/human-in-the-forest-tablet@2x.webp') type('image/webp'),
+                url('../images/human-in-the-forest-tablet@2x.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
 
         // Десктопы
         @media (min-width: 1440px) {
             background: image-set(
-                url('/images/human-in-the-forest-desktop.avif') type('image/avif'),
-                url('/images/human-in-the-forest-desktop.webp') type('image/webp'),
-                url('/images/human-in-the-forest-desktop.jpg') type('image/jpg')
+                url('../images/human-in-the-forest-desktop.avif') type('image/avif'),
+                url('../images/human-in-the-forest-desktop.webp') type('image/webp'),
+                url('../images/human-in-the-forest-desktop.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
 
         // Retina для десктопов
         @media (min-width: 1440px) and (min-resolution: 2dppx) {
             background: image-set(
-                url('/images/human-in-the-forest-desktop@2x.avif') type('image/avif'),
-                url('/images/human-in-the-forest-desktop@2x.webp') type('image/webp'),
-                url('/images/human-in-the-forest-desktop@2x.jpg') type('image/jpg')
+                url('../images/human-in-the-forest-desktop@2x.avif') type('image/avif'),
+                url('../images/human-in-the-forest-desktop@2x.webp') type('image/webp'),
+                url('../images/human-in-the-forest-desktop@2x.jpg') type('image/jpg')
             ) no-repeat center/cover;
         }
     }
@@ -191,3 +191,6 @@
         20%, 40%, 60%, 80% { transform: translateX(5px); }
     }
 }
+
+
+

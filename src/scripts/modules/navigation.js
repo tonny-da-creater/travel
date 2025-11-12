@@ -11,11 +11,25 @@ export function initNavigation() {
   const body = document.body;
 
   if (navToggle && navMenu && navLinks.length) {
+    // ✅ Функция закрытия меню
+    const closeMenu = () => {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+      body.classList.remove('menu-open');
+    };
+
     // Переключение мобильного меню
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       navToggle.classList.toggle('active');
       body.classList.toggle('menu-open');
+    });
+
+    // ✅ Закрытие меню при ресайзе на десктоп (1440px+)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1440) {
+        closeMenu();
+      }
     });
 
     // Установка активной ссылки
@@ -37,6 +51,8 @@ export function initNavigation() {
         navLinks.forEach(navLink => navLink.classList.remove('active'));
         // Добавляем активный класс к кликнутой ссылке
         link.classList.add('active');
+        // ✅ Закрываем мобильное меню при клике на ссылку
+        closeMenu();
       });
     });
   }

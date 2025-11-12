@@ -1,11 +1,11 @@
 @use 'variables' as v;
 
 .hero {
-  background: url('/images/entry-section-mobile.jpg') no-repeat center/cover;
+  background: url('../images/entry-section-mobile.jpg') no-repeat center/cover;
   background: image-set(
-    url('/images/entry-section-mobile.avif') type('image/avif'),
-    url('/images/entry-section-mobile.webp') type('image/webp'),
-    url('/images/entry-section-mobile.jpg') type('image/jpg')
+    url('../images/entry-section-mobile.avif') type('image/avif'),
+    url('../images/entry-section-mobile.webp') type('image/webp'),
+    url('../images/entry-section-mobile.jpg') type('image/jpg')
   ) no-repeat center/cover;
   padding: 196px 0 201px 0; // Отступ для header сверху
   margin-bottom: 236px;
@@ -14,48 +14,48 @@
 
   @media all and (min-resolution: 2dppx) {
     background: image-set(
-      url('/images/entry-section-mobile@2x.avif') type('image/avif'),
-      url('/images/entry-section-mobile@2x.webp') type('image/webp'),
-      url('/images/entry-section-mobile@2x.jpg') type('image/jpg')
+      url('../images/entry-section-mobile@2x.avif') type('image/avif'),
+      url('../images/entry-section-mobile@2x.webp') type('image/webp'),
+      url('../images/entry-section-mobile@2x.jpg') type('image/jpg')
     ) no-repeat center/cover;
   }
   
   @media (min-width: v.$screen-tablet) {
-    background: url('/images/entry-section-tablet.jpg') no-repeat center/cover;
+    background: url('../images/entry-section-tablet.jpg') no-repeat center/cover;
     background: image-set(
-      url('/images/entry-section-tablet.avif') type('image/avif'),
-      url('/images/entry-section-tablet.webp') type('image/webp'),
-      url('/images/entry-section-tablet.jpg') type('image/jpeg')
+      url('../images/entry-section-tablet.avif') type('image/avif'),
+      url('../images/entry-section-tablet.webp') type('image/webp'),
+      url('../images/entry-section-tablet.jpg') type('image/jpeg')
     ) no-repeat center/cover;
     padding-top: 314px; // Добавляем отступ для контента после header
     padding-bottom: 322px;
 
     @media all and (min-resolution: 2dppx) {
-      background: url('/images/entry-section-tablet@2x.jpg') no-repeat center/cover;
+      background: url('../images/entry-section-tablet@2x.jpg') no-repeat center/cover;
       background: image-set(
-        url('/images/entry-section-tablet@2x.avif') type('image/avif'),
-        url('/images/entry-section-tablet@2x.webp') type('image/webp'),
-        url('/images/entry-section-tablet@2x.jpg') type('image/jpeg')
+        url('../images/entry-section-tablet@2x.avif') type('image/avif'),
+        url('../images/entry-section-tablet@2x.webp') type('image/webp'),
+        url('../images/entry-section-tablet@2x.jpg') type('image/jpeg')
       ) no-repeat center/cover;
     }
   }
   @media (min-width: v.$screen-desktop) {
-    background: url('/images/entry-section-desktop.jpg') no-repeat center/cover; /* Fallback */
+    background: url('../images/entry-section-desktop.jpg') no-repeat center/cover; /* Fallback */
     background: image-set(
-      url('/images/entry-section-desktop.avif') type('image/avif'),
-      url('/images/entry-section-desktop.webp') type('image/webp'),
-      url('/images/entry-section-desktop.jpg') type('image/jpeg')
+      url('../images/entry-section-desktop.avif') type('image/avif'),
+      url('../images/entry-section-desktop.webp') type('image/webp'),
+      url('../images/entry-section-desktop.jpg') type('image/jpeg')
     ) no-repeat center/cover;
     padding-top: 224px; // Добавляем отступ для контента после header
     padding-bottom: 256px;
     margin-bottom: 257px;
 
     @media all and (min-resolution: 2dppx) {
-      background: url('/images/entry-section-desktop@2x.jpg') no-repeat center/cover; /* Fallback */
+      background: url('../images/entry-section-desktop@2x.jpg') no-repeat center/cover; /* Fallback */
       background: image-set(
-        url('/images/entry-section-desktop@2x.avif') type('image/avif'),
-        url('/images/entry-section-desktop@2x.webp') type('image/webp'),
-        url('/images/entry-section-desktop@2x.jpg') type('image/jpeg')
+        url('../images/entry-section-desktop@2x.avif') type('image/avif'),
+        url('../images/entry-section-desktop@2x.webp') type('image/webp'),
+        url('../images/entry-section-desktop@2x.jpg') type('image/jpeg')
       ) no-repeat center/cover;
     }
   }
@@ -210,6 +210,9 @@
     align-items: center;
   }
 }
+
+
+
 
 
 

@@ -11,14 +11,14 @@ import 'swiper/css/pagination';
 
 // Импорт модулей
 import { initNavigation } from './modules/navigation.js';
-import { initSwipers } from './modules/swiper.js';
 import { initVideoModal } from './modules/videoModal.js';
 import { initVideoPosters } from './modules/videoPosters.js';
 import { initFormValidation } from './modules/formValidation.js';
+import { initSwipers } from './modules/swiper.js';
 
 // Инициализируем все модули
 initNavigation();
-initSwipers();
 initVideoModal();
 initVideoPosters();
 initFormValidation();
+initSwipers();

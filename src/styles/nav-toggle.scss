@@ -11,7 +11,7 @@
   margin-bottom: 7px;
 
   @media (min-width: v.$screen-desktop) {
-    display: none;
+    display: none; // ✅ Скрываем бургер только на десктопах (1440px+)
   }
 
   &__line {
@@ -34,3 +34,6 @@
   &:nth-child(2) { opacity: 0; }
   &:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 }
+
+
+

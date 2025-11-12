@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
+    "deploy": "npm run build && gh-pages -d build",
     "screenshot:png": "node tools/screenshot.js --format=png",
     "screenshot:pdf": "node tools/screenshot.js --format=pdf"
   },
@@ -14,6 +15,7 @@
     "core-js": "^3.42.0",
     "css-loader": "^6.11.0",
     "css-minimizer-webpack-plugin": "^6.0.0",
+    "gh-pages": "^6.3.0",
     "gulp": "^5.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-file-include": "^2.3.0",

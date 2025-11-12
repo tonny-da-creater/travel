@@ -82,7 +82,7 @@
     background: transparent;
     width: auto;
     overflow: visible;
-    pointer-events: auto; // ❗ Включаем клики на десктопе
+    pointer-events: auto; // ✅ Включаем клики только на десктопах (1440px+)
   }
 
   &__list {
@@ -146,3 +146,6 @@
 .nav-menu.active .nav-menu__list-item {
   opacity: 1;
 }
+
+
+
