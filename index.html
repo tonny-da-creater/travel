@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Pero Travel</title>
+  <meta name="description" content="Путешествуйте вместе с Pero Travel - экскурсии, туры и незабываемые впечатления">
   
   <!-- DNS Prefetch и Preconnect для внешних ресурсов -->
   <link rel="preconnect" href="https://www.youtube.com">
@@ -12,12 +14,9 @@
   <link rel="dns-prefetch" href="https://instagram.com">
   <link rel="dns-prefetch" href="https://facebook.com">
   
-  <!-- Preload критического LCP изображения (hero background) -->
-  <link rel="preload" href="./images/entry-section-mobile.avif" as="image" type="image/avif" media="(max-width: 767px)" imagesrcset="./images/entry-section-mobile.avif 1x, ./images/entry-section-mobile@2x.avif 2x" fetchpriority="high">
+  <!-- Preload критического LCP изображения (WebP для широкой поддержки) -->
   <link rel="preload" href="./images/entry-section-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)" imagesrcset="./images/entry-section-mobile.webp 1x, ./images/entry-section-mobile@2x.webp 2x" fetchpriority="high">
-  <link rel="preload" href="./images/entry-section-tablet.avif" as="image" type="image/avif" media="(min-width: 768px) and (max-width: 1439px)" imagesrcset="./images/entry-section-tablet.avif 1x, ./images/entry-section-tablet@2x.avif 2x" fetchpriority="high">
   <link rel="preload" href="./images/entry-section-tablet.webp" as="image" type="image/webp" media="(min-width: 768px) and (max-width: 1439px)" imagesrcset="./images/entry-section-tablet.webp 1x, ./images/entry-section-tablet@2x.webp 2x" fetchpriority="high">
-  <link rel="preload" href="./images/entry-section-desktop.avif" as="image" type="image/avif" media="(min-width: 1440px)" imagesrcset="./images/entry-section-desktop.avif 1x, ./images/entry-section-desktop@2x.avif 2x" fetchpriority="high">
   <link rel="preload" href="./images/entry-section-desktop.webp" as="image" type="image/webp" media="(min-width: 1440px)" imagesrcset="./images/entry-section-desktop.webp 1x, ./images/entry-section-desktop@2x.webp 2x" fetchpriority="high">
   
   <!-- Preload критических шрифтов -->
@@ -26,7 +25,7 @@
   <link rel="preload" href="./fonts/mr_kindlyjasmineg.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- Основной CSS -->
-  <link rel="stylesheet" href="./styles/style.min.css?v=1762714254947">
+  <link rel="stylesheet" href="./styles/style.min.css?v=1762943647153">
 </head>
 <body>
   <header class="header">
@@ -545,8 +544,8 @@
     </div>
   </div>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="./scripts/main.min.js?v=1762714254947" defer></script>
+  <script src="https://www.youtube.com/iframe_api" async></script>
+  <script src="./scripts/main.min.js?v=1762943647153" defer></script>
 </body>
 </html>
 
