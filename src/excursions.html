@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pero Travel</title>
+  <meta name="description" content="Путешествуйте вместе с Pero Travel - экскурсии, туры и незабываемые впечатления">
+  
+  <!-- DNS Prefetch для социальных сетей в hero (первый экран) -->
+  <link rel="dns-prefetch" href="https://vk.com">
+  <link rel="dns-prefetch" href="https://instagram.com">
+  <link rel="dns-prefetch" href="https://facebook.com">
+  
+  <!-- Preload критического LCP изображения (WebP для широкой поддержки) -->
+  <link rel="preload" href="./images/entry-section-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)" imagesrcset="./images/entry-section-mobile.webp 1x, ./images/entry-section-mobile@2x.webp 2x" fetchpriority="high">
+  <link rel="preload" href="./images/entry-section-tablet.webp" as="image" type="image/webp" media="(min-width: 768px) and (max-width: 1439px)" imagesrcset="./images/entry-section-tablet.webp 1x, ./images/entry-section-tablet@2x.webp 2x" fetchpriority="high">
+  <link rel="preload" href="./images/entry-section-desktop.webp" as="image" type="image/webp" media="(min-width: 1440px)" imagesrcset="./images/entry-section-desktop.webp 1x, ./images/entry-section-desktop@2x.webp 2x" fetchpriority="high">
+  
+  <!-- Preload критических шрифтов (только для hero) -->
+  <link rel="preload" href="./fonts/Montserrat-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/mr_kindlyjasmineg.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Основной CSS -->
+  <link rel="stylesheet" href="./styles/style.min.css">
+</head>
+<body>
+  @@include('partials/header.html')
+
+ <main>
+    <section class="hero-excursions">
+        <div class="container">
+            <h1 class="hero-excursions__title">НАШИ ЭКСКУРСИИ</h1>
+        </div>
+    </section>
+    <section class="grid-wrapper">
+        <div class="container">
+            <div class="grid-wrapper__tabs">
+                <!-- Табы выбора типа тура -->
+                <div class="tabs">
+                    <button class="tabs__btn tabs__btn--active" data-tab="bus">АВТОБУСНЫЙ ТУР</button>
+                    <button class="tabs__btn" data-tab="jeep">ДЖИППИНГ</button>
+                    <button class="tabs__btn" data-tab="yacht">ЯХТИНГ</button>
+                    <button class="tabs__btn" data-tab="canyon">КАНЬОНИНГ</button>
+                </div>
+
+                <!-- Форма выбора параметров -->
+                <form class="tour-form">
+                    <div class="tour-form__field">
+                        <input type="text" class="tour-form__input" placeholder="Абхазия" value="Абхазия">
+                        <svg class="tour-form__icon tour-form__icon--location" width="16" height="20" aria-hidden="true">
+                            <use href="./images/sprites/sprites.svg#location"></use>
+                        </svg>
+                    </div>
+
+                    <div class="tour-form__field">
+                        <input type="text" class="tour-form__input" placeholder="10 ноября 2021" value="10 ноября 2021">
+                        <svg class="tour-form__icon tour-form__icon--calendar" width="20" height="20" aria-hidden="true">
+                            <use href="./images/sprites/sprites.svg#calendar"></use>
+                        </svg>
+                    </div>
+
+                    <div class="tour-form__field">
+                        <input type="text" class="tour-form__input" placeholder="5 человек" value="5 человек">
+                        <svg class="tour-form__icon tour-form__icon--people" width="20" height="16" aria-hidden="true">
+                            <use href="./images/sprites/sprites.svg#persons"></use>
+                        </svg>
+                    </div>
+
+                    <button type="submit" class="tour-form__submit">Показать</button>
+                </form>
+            </div>
+        </div>
+    </section>
+ </main>
+
+  @@include('partials/footer.html')
+
+  <!-- Модальное окно -->
+  <div class="modal" id="video-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Закрыть видео">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal-video">
+        <iframe id="video-frame" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="./scripts/main.min.js" defer></script>
+</body>
+</html>
+

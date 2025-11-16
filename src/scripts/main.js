@@ -16,6 +16,7 @@ import { initVideoPosters } from './modules/videoPosters.js';
 import { initFormValidation } from './modules/formValidation.js';
 import { initSwipers } from './modules/swiper.js';
 
+
 // Инициализируем все модули
 initNavigation();
 initVideoModal();

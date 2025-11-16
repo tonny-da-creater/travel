@@ -50,6 +50,9 @@ html {
 }
 
 body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
     line-height: 1.5;
 
     &.modal-open {
