@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Дополнительный сброс отступов для параграфов
+p {
+    margin: 0;
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  outline-offset: -2px;
+}

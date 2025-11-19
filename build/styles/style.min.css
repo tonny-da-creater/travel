@@ -2370,32 +2370,6 @@ picture {
   stroke: #17C1BC;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-p {
-  margin: 0;
-}
-
-[type=button],
-[type=reset],
-[type=submit],
-button {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-}
-
-[type=search] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
-  outline-offset: -2px;
-}
-
 html {
   font-size: 12px;
 }
@@ -2463,6 +2437,32 @@ img {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  outline-offset: -2px;
 }
 /*!**************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/swiper/swiper.css ***!
